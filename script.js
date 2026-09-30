@@ -1,6 +1,6 @@
-// =====================================================
-// ELEMENTOS PRINCIPALES
-// =====================================================
+/* =========================================================
+   ELEMENTOS PRINCIPALES
+========================================================= */
 
 const entrada =
     document.getElementById("entrada");
@@ -33,10 +33,9 @@ const heroVideo =
     document.getElementById("heroVideo");
 
 
-
-// =====================================================
-// ABRIR SOBRE
-// =====================================================
+/* =========================================================
+   ABRIR SOBRE
+========================================================= */
 
 let invitacionAbierta = false;
 
@@ -45,8 +44,11 @@ abrirSobre.addEventListener(
     "click",
     function () {
 
+
         if (invitacionAbierta) {
+
             return;
+
         }
 
 
@@ -60,6 +62,7 @@ abrirSobre.addEventListener(
 
         setTimeout(
             function () {
+
 
                 entrada.classList.add(
                     "finalizada"
@@ -89,8 +92,8 @@ abrirSobre.addEventListener(
                     "visible"
                 );
 
-            },
 
+            },
             1500
         );
 
@@ -102,107 +105,156 @@ abrirSobre.addEventListener(
                     "none";
 
             },
-
             2800
         );
+
 
     }
 );
 
 
-
-// =====================================================
-// MÚSICA
-// =====================================================
+/* =========================================================
+   MÚSICA
+========================================================= */
 
 let musicaSonando = false;
+
+
+/*
+    Generamos los iconos con HTML + CSS.
+
+    No utilizamos símbolos Unicode
+    como ▶ para evitar que iOS/Android
+    los conviertan en emoji.
+*/
+
+function mostrarPlay() {
+
+    iconoMusica.innerHTML =
+        '<span class="play-icon"></span>';
+
+}
+
+
+function mostrarPausa() {
+
+    iconoMusica.innerHTML =
+        '<span class="pause-icon"><i></i><i></i></span>';
+
+}
 
 
 controlMusica.addEventListener(
     "click",
     function () {
 
+
         if (!musicaSonando) {
 
-            musica.play().then(
-                function () {
 
-                    musicaSonando = true;
+            musica.play()
+                .then(
+                    function () {
 
-                    iconoMusica.textContent =
-                        "Ⅱ";
 
-                    estadoMusica.textContent =
-                        "PAUSAR";
+                        musicaSonando = true;
 
-                    controlMusica.setAttribute(
-                        "aria-label",
-                        "Pausar música"
-                    );
 
-                }
-            ).catch(
-                function () {
+                        mostrarPausa();
 
-                    console.log(
-                        "No se pudo reproducir el audio."
-                    );
 
-                }
-            );
+                        estadoMusica.textContent =
+                            "PAUSAR";
+
+
+                        controlMusica.setAttribute(
+                            "aria-label",
+                            "Pausar música"
+                        );
+
+
+                    }
+                )
+                .catch(
+                    function () {
+
+
+                        console.log(
+                            "No se pudo reproducir el audio."
+                        );
+
+
+                    }
+                );
+
 
         } else {
 
+
             musica.pause();
+
 
             musicaSonando = false;
 
-            iconoMusica.textContent =
-                "▶";
+
+            mostrarPlay();
+
 
             estadoMusica.textContent =
                 "REPRODUCIR";
+
 
             controlMusica.setAttribute(
                 "aria-label",
                 "Reproducir música"
             );
 
+
         }
+
 
     }
 );
 
 
-
-// =====================================================
-// CONTROL DE MÚSICA FLOTANTE
-// =====================================================
+/* =========================================================
+   CONTROL DE MÚSICA FLOTANTE
+========================================================= */
 
 const observadorVideo =
     new IntersectionObserver(
 
         function (entradas) {
 
+
             entradas.forEach(
                 function (entradaVideo) {
 
-                    if (!entradaVideo.isIntersecting) {
+
+                    if (
+                        !entradaVideo.isIntersecting
+                    ) {
+
 
                         controlMusica.classList.add(
                             "flotante"
                         );
 
+
                     } else {
+
 
                         controlMusica.classList.remove(
                             "flotante"
                         );
 
+
                     }
+
 
                 }
             );
+
 
         },
 
@@ -218,11 +270,9 @@ observadorVideo.observe(
 );
 
 
-
-// =====================================================
-// COUNTDOWN
-// 23 ENERO 2027 · 5:00 PM
-// =====================================================
+/* =========================================================
+   COUNTDOWN
+========================================================= */
 
 const fechaBoda =
     new Date(
@@ -237,16 +287,19 @@ const fechaBoda =
 
 function actualizarCountdown() {
 
+
     const ahora =
         new Date();
 
 
     const diferencia =
-        fechaBoda.getTime() -
+        fechaBoda.getTime()
+        -
         ahora.getTime();
 
 
     if (diferencia <= 0) {
+
 
         document.getElementById(
             "dias"
@@ -269,6 +322,7 @@ function actualizarCountdown() {
 
 
         return;
+
 
     }
 
@@ -311,28 +365,41 @@ function actualizarCountdown() {
         "dias"
     ).textContent =
         String(dias)
-        .padStart(3,"0");
+        .padStart(
+            3,
+            "0"
+        );
 
 
     document.getElementById(
         "horas"
     ).textContent =
         String(horas)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "minutos"
     ).textContent =
         String(minutos)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "segundos"
     ).textContent =
         String(segundos)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
+
 
 }
 
@@ -346,10 +413,9 @@ setInterval(
 );
 
 
-
-// =====================================================
-// ANIMACIONES AL HACER SCROLL
-// =====================================================
+/* =========================================================
+   ANIMACIONES AL HACER SCROLL
+========================================================= */
 
 const elementosReveal =
     document.querySelectorAll(
@@ -362,10 +428,15 @@ const observadorReveal =
 
         function (entradas) {
 
+
             entradas.forEach(
                 function (elemento) {
 
-                    if (elemento.isIntersecting) {
+
+                    if (
+                        elemento.isIntersecting
+                    ) {
+
 
                         elemento.target.classList.add(
                             "visible"
@@ -376,10 +447,13 @@ const observadorReveal =
                             elemento.target
                         );
 
+
                     }
+
 
                 }
             );
+
 
         },
 
@@ -393,39 +467,43 @@ const observadorReveal =
 elementosReveal.forEach(
     function (elemento) {
 
+
         observadorReveal.observe(
             elemento
         );
+
 
     }
 );
 
 
-
-// =====================================================
-// FORMULARIO RSVP
-// SOLO DEMOSTRACIÓN
-// =====================================================
+/* =========================================================
+   RSVP
+========================================================= */
 
 const abrirRsvp =
     document.getElementById(
         "abrirRsvp"
     );
 
+
 const modalRsvp =
     document.getElementById(
         "modalRsvp"
     );
+
 
 const cerrarRsvp =
     document.getElementById(
         "cerrarRsvp"
     );
 
+
 const cerrarFondo =
     document.getElementById(
         "cerrarFondo"
     );
+
 
 const formRsvp =
     document.getElementById(
@@ -434,6 +512,7 @@ const formRsvp =
 
 
 function mostrarRsvp() {
+
 
     modalRsvp.classList.add(
         "activo"
@@ -449,10 +528,12 @@ function mostrarRsvp() {
     document.body.style.overflow =
         "hidden";
 
+
 }
 
 
 function ocultarRsvp() {
+
 
     modalRsvp.classList.remove(
         "activo"
@@ -467,6 +548,7 @@ function ocultarRsvp() {
 
     document.body.style.overflow =
         "";
+
 
 }
 
@@ -493,12 +575,14 @@ formRsvp.addEventListener(
     "submit",
     function (evento) {
 
+
         evento.preventDefault();
 
 
         alert(
             "Esta es una demostración. Más adelante conectaremos este formulario con la lista real de invitados."
         );
+
 
     }
 );
