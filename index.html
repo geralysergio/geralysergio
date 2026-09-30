@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Geraldine & Sergio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="bloqueado">
+
+
+<!-- =====================================================
+     01 · SOBRE
+===================================================== -->
+
+<section class="entrada" id="entrada">
+
+    <div class="sobre-full" id="sobreFull">
+
+        <div class="textura-papel"></div>
+
+        <!-- COSTURAS / PLIEGUES DEL SOBRE -->
+
+        <div class="pliegue pliegue-izquierdo"></div>
+        <div class="pliegue pliegue-derecho"></div>
+
+
+        <!-- DESTINATARIO -->
+
+        <div class="destinatario">
+
+            <p class="microtitulo">
+                ESTA INVITACIÓN ES PARA
+            </p>
+
+            <h1>
+                Julieth Escudero
+            </h1>
+
+            <p class="lugares">
+                Hemos reservado
+                <strong>2 lugares</strong>
+                para ti
+            </p>
+
+        </div>
+
+
+        <!-- SOLAPA -->
+
+        <div class="solapa-full">
+
+            <div class="borde-solapa"></div>
+
+        </div>
+
+
+        <!-- SELLO -->
+
+        <button
+            class="sello-monograma"
+            id="abrirSobre"
+            aria-label="Abrir invitación"
+        >
+
+            <img
+                src="img/monograma.svg"
+                alt=""
+                class="monograma-sello-img"
+            >
+
+        </button>
+
+
+        <p class="abrir-texto">
+            TOCA EL MONOGRAMA PARA ABRIR
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     02 · VIDEO + SALMO
+===================================================== -->
+
+<section class="hero-video" id="heroVideo">
+
+
+    <video
+        id="videoBoda"
+        muted
+        playsinline
+        preload="auto"
+    >
+
+        <source
+            src="video/intro.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+
+    <div class="video-overlay"></div>
+
+
+    <div
+        class="salmo-contenido"
+        id="salmoContenido"
+    >
+
+        <p class="versiculo linea-texto texto-1">
+            Uno solo puede ser vencido,
+        </p>
+
+        <p class="versiculo linea-texto texto-2">
+            pero dos pueden resistir:
+        </p>
+
+        <p class="versiculo linea-texto texto-3">
+            cordón de tres dobleces
+        </p>
+
+        <p class="versiculo linea-texto texto-4">
+            no se rompe fácilmente.
+        </p>
+
+
+        <p class="referencia">
+            ECLESIASTÉS 4:12
+        </p>
+
+
+        <div class="cordon">
+
+            <span class="cordon-linea cordon-1"></span>
+            <span class="cordon-linea cordon-2"></span>
+            <span class="cordon-linea cordon-3"></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- REPRODUCTOR MINIMALISTA -->
+
+    <button
+        class="control-musica"
+        id="controlMusica"
+        aria-label="Reproducir música"
+    >
+
+        <span
+            class="icono-musica"
+            id="iconoMusica"
+        >
+            ▶
+        </span>
+
+        <span class="texto-control-musica">
+
+            <span class="musica-label">
+                NUESTRA CANCIÓN
+            </span>
+
+            <span
+                class="estado-musica"
+                id="estadoMusica"
+            >
+                REPRODUCIR
+            </span>
+
+        </span>
+
+    </button>
+
+
+    <audio
+        id="musicaBoda"
+        preload="metadata"
+        loop
+    >
+
+        <source
+            src="audio/cancion.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <p class="continuar-video">
+        DESLIZA PARA DESCUBRIR
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     03 · NOVIOS
+===================================================== -->
+
+<section class="novios">
+
+
+    <div class="monograma-novios-contenedor">
+
+        <img
+            src="img/monograma.svg"
+            alt="Geraldine y Sergio"
+            class="monograma-novios"
+        >
+
+    </div>
+
+
+    <p class="eyebrow">
+        ACOMPÁÑANOS A CELEBRAR
+        <br>
+        NUESTRA BODA
+    </p>
+
+
+    <h2 class="nombres">
+
+        Geraldine
+
+        <span>&</span>
+
+        Sergio
+
+    </h2>
+
+
+    <div class="ornamento"></div>
+
+
+    <p class="fecha">
+        23 · 01 · 2027
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     04 · INFORMACIÓN PRINCIPAL
+===================================================== -->
+
+<section class="historia-evento">
+
+
+    <!-- COUNTDOWN -->
+
+    <div class="countdown-bloque reveal">
+
+
+        <p class="microtitulo azul">
+            FALTA MUY POCO
+        </p>
+
+
+        <h2 class="fecha-grande">
+            23 · 01 · 2027
+        </h2>
+
+
+        <div class="countdown">
+
+
+            <div class="contador-item">
+
+                <span id="dias">
+                    000
+                </span>
+
+                <p>DÍAS</p>
+
+            </div>
+
+
+            <div class="contador-item">
+
+                <span id="horas">
+                    00
+                </span>
+
+                <p>HORAS</p>
+
+            </div>
+
+
+            <div class="contador-item">
+
+                <span id="minutos">
+                    00
+                </span>
+
+                <p>MIN</p>
+
+            </div>
+
+
+            <div class="contador-item">
+
+                <span id="segundos">
+                    00
+                </span>
+
+                <p>SEG</p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ITINERARIO -->
+
+    <div class="itinerario reveal">
+
+
+        <p class="microtitulo azul">
+            NUESTRO DÍA
+        </p>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-linea"></div>
+
+
+            <article class="momento">
+
+                <div class="punto"></div>
+
+                <p class="hora">
+                    5:00 PM
+                </p>
+
+                <h3>
+                    Ceremonia
+                </h3>
+
+                <p>
+                    El comienzo de nuestro para siempre.
+                </p>
+
+            </article>
+
+
+            <article class="momento">
+
+                <div class="punto"></div>
+
+                <p class="hora">
+                    7:00 PM
+                </p>
+
+                <h3>
+                    Recepción
+                </h3>
+
+                <p>
+                    Brindemos, celebremos y bailemos juntos.
+                </p>
+
+            </article>
+
+
+            <article class="momento">
+
+                <div class="punto"></div>
+
+                <p class="hora">
+                    1:00 AM
+                </p>
+
+                <h3>
+                    Regreso a casa
+                </h3>
+
+                <p>
+                    Después de una noche para recordar.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- UBICACIÓN -->
+
+    <div class="ubicacion reveal">
+
+
+        <svg
+            class="icono-lineal icono-ubicacion"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/>
+            <circle cx="12" cy="10" r="2.2"/>
+        </svg>
+
+
+        <p class="microtitulo azul">
+            NOS ENCONTRAMOS EN
+        </p>
+
+
+        <h2>
+            Finca Los Mangos
+        </h2>
+
+
+        <p class="direccion">
+            Barbosa · Vereda Tamborcito
+            <br>
+            Calle 1
+        </p>
+
+
+        <button class="boton-lineal">
+            CÓMO LLEGAR
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     05 · DRESS CODE + RECOMENDACIONES
+===================================================== -->
+
+<section class="dress-code">
+
+
+    <div class="dress-contenido reveal">
+
+
+        <svg
+            class="icono-lineal icono-claro"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="M8 4 5 7l3 3v10h8V10l3-3-3-3-4 3-4-3Z"/>
+            <path d="M10 7h4"/>
+        </svg>
+
+
+        <p class="microtitulo claro">
+            DRESS CODE
+        </p>
+
+
+        <h2>
+            Traje formal
+        </h2>
+
+
+        <p class="frase-dress">
+            El campo pone el escenario.
+            <br>
+            <em>Tú pones la elegancia.</em>
+        </p>
+
+
+        <div class="separador-claro"></div>
+
+
+        <p class="titulo-recomendaciones">
+            ELEGANTES, PERO CÓMODOS
+        </p>
+
+
+        <p class="intro-recomendaciones">
+
+            Nuestra celebración será en una finca,
+            así que queremos que disfrutes cada momento
+            con total comodidad.
+
+        </p>
+
+
+        <div class="recomendaciones-grid">
+
+
+            <div class="recomendacion">
+
+                <span class="numero-recomendacion">
+                    01
+                </span>
+
+                <h3>
+                    Ellos
+                </h3>
+
+                <p>
+                    Traje formal. Si lo prefieren,
+                    pueden acompañarlo con tenis sobrios.
+                </p>
+
+            </div>
+
+
+            <div class="recomendacion">
+
+                <span class="numero-recomendacion">
+                    02
+                </span>
+
+                <h3>
+                    Ellas
+                </h3>
+
+                <p>
+                    Vestido formal. Recomendamos zapatos bajos,
+                    sandalias o un calzado cómodo para disfrutar
+                    del entorno y bailar sin preocupaciones.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     06 · REGALOS
+===================================================== -->
+
+<section class="regalos">
+
+
+    <div class="contenido-angosto reveal">
+
+
+        <svg
+            class="icono-lineal icono-regalo"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <rect x="3" y="8" width="18" height="12" rx="1"/>
+            <path d="M3 11h18"/>
+            <path d="M12 8v12"/>
+            <path d="M12 8H8.5A2.5 2.5 0 1 1 11 5.5L12 8Z"/>
+            <path d="M12 8h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z"/>
+        </svg>
+
+
+        <p class="microtitulo azul">
+            REGALOS
+        </p>
+
+
+        <h2 class="titulo-editorial">
+            Lluvia de sobres
+        </h2>
+
+
+        <p class="texto-editorial">
+
+            Tu presencia es nuestro mejor regalo.
+
+            <br><br>
+
+            Si deseas tener un detalle con nosotros,
+            tendremos lluvia de sobres.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     07 · MISIÓN
+===================================================== -->
+
+<section class="mision">
+
+
+    <div class="contenido-mision reveal">
+
+
+        <p class="microtitulo azul">
+            TU MISIÓN EN NUESTRA BODA
+        </p>
+
+
+        <h2>
+            Ven a disfrutar.
+        </h2>
+
+
+        <div class="misiones-grid">
+
+
+            <!-- BAILAR -->
+
+            <div class="mision-item">
+
+                <svg
+                    class="icono-lineal"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="4.5" r="2"/>
+                    <path d="M12 7v6"/>
+                    <path d="m12 9-5 3"/>
+                    <path d="m12 9 5 3"/>
+                    <path d="m12 13-4 7"/>
+                    <path d="m12 13 5 6"/>
+                </svg>
+
+                <p>
+                    Bailar
+                </p>
+
+            </div>
+
+
+            <!-- REÍR -->
+
+            <div class="mision-item">
+
+                <svg
+                    class="icono-lineal"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M8 10h.01"/>
+                    <path d="M16 10h.01"/>
+                    <path d="M8 14c1 2 2.5 3 4 3s3-1 4-3"/>
+                </svg>
+
+                <p>
+                    Reír
+                </p>
+
+            </div>
+
+
+            <!-- COMER -->
+
+            <div class="mision-item">
+
+                <svg
+                    class="icono-lineal"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="M7 3v8"/>
+                    <path d="M4 3v5c0 2 1 3 3 3s3-1 3-3V3"/>
+                    <path d="M7 11v10"/>
+                    <path d="M16 3v18"/>
+                    <path d="M16 3c3 2 4 5 4 8h-4"/>
+                </svg>
+
+                <p>
+                    Comer rico
+                </p>
+
+            </div>
+
+
+            <!-- CELEBRAR -->
+
+            <div class="mision-item">
+
+                <svg
+                    class="icono-lineal"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path d="m4 20 5-12 7 7-12 5Z"/>
+                    <path d="M13 5 15 2"/>
+                    <path d="m17 8 4-1"/>
+                    <path d="m16 12 3 2"/>
+                </svg>
+
+                <p>
+                    Celebrar
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="mision-cierre">
+
+            Y ayudarnos a recordar
+            <br>
+            este día para siempre.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     08 · RSVP
+===================================================== -->
+
+<section class="rsvp">
+
+
+    <div class="rsvp-contenido reveal">
+
+
+        <p class="microtitulo claro">
+            RSVP
+        </p>
+
+
+        <h2>
+            ¿Nos acompañas?
+        </h2>
+
+
+        <p class="rsvp-intro">
+
+            Nos hará muy felices celebrar contigo.
+
+            <br>
+
+            Hemos reservado
+            <strong>2 lugares</strong>
+            para tu invitación.
+
+        </p>
+
+
+        <button
+            class="boton-rsvp"
+            id="abrirRsvp"
+        >
+            CONFIRMAR ASISTENCIA
+        </button>
+
+
+        <p class="nota-rsvp">
+            Agradecemos confirmar tu asistencia
+            dentro de la fecha indicada.
+        </p>
+
+
+        <img
+            src="img/monograma.svg"
+            alt="Geraldine y Sergio"
+            class="monograma-rsvp"
+        >
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     MODAL RSVP · SOLO DEMOSTRACIÓN
+===================================================== -->
+
+<div
+    class="modal-rsvp"
+    id="modalRsvp"
+    aria-hidden="true"
+>
+
+
+    <div class="modal-fondo" id="cerrarFondo"></div>
+
+
+    <div class="formulario-rsvp">
+
+
+        <button
+            class="cerrar-rsvp"
+            id="cerrarRsvp"
+            aria-label="Cerrar formulario"
+        >
+            ×
+        </button>
+
+
+        <p class="microtitulo azul">
+            CONFIRMA TU ASISTENCIA
+        </p>
+
+
+        <h2>
+            Julieth Escudero
+        </h2>
+
+
+        <p class="cupos-formulario">
+            Tienes
+            <strong>2 lugares</strong>
+            reservados.
+        </p>
+
+
+        <form id="formRsvp">
+
+
+            <div class="campo">
+
+
+                <label>
+                    ¿Nos acompañas?
+                </label>
+
+
+                <div class="opciones">
+
+
+                    <label class="opcion">
+
+                        <input
+                            type="radio"
+                            name="asistencia"
+                            value="si"
+                        >
+
+                        <span>
+                            Sí, allí estaré
+                        </span>
+
+                    </label>
+
+
+                    <label class="opcion">
+
+                        <input
+                            type="radio"
+                            name="asistencia"
+                            value="no"
+                        >
+
+                        <span>
+                            No podré acompañarlos
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="campo">
+
+
+                <label for="cantidadAsistentes">
+                    Personas que asistirán
+                </label>
+
+
+                <select id="cantidadAsistentes">
+
+                    <option value="1">
+                        1 persona
+                    </option>
+
+                    <option value="2">
+                        2 personas
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <div class="campo">
+
+
+                <label for="acompanante">
+                    Nombre de tu acompañante
+                </label>
+
+
+                <input
+                    type="text"
+                    id="acompanante"
+                    placeholder="Nombre y apellido"
+                >
+
+
+            </div>
+
+
+            <!--
+                ESTE BLOQUE APARECERÁ SOLO
+                EN INVITACIONES CON HOSPEDAJE
+            -->
+
+            <div class="campo hospedaje">
+
+
+                <p class="hospedaje-etiqueta">
+                    HOSPEDAJE
+                </p>
+
+
+                <p class="texto-hospedaje">
+
+                    Tu invitación cuenta con opción
+                    de hospedaje.
+
+                    ¿Deseas reservarlo?
+
+                </p>
+
+
+                <div class="opciones">
+
+
+                    <label class="opcion">
+
+                        <input
+                            type="radio"
+                            name="hospedaje"
+                            value="si"
+                        >
+
+                        <span>
+                            Sí, deseo hospedaje
+                        </span>
+
+                    </label>
+
+
+                    <label class="opcion">
+
+                        <input
+                            type="radio"
+                            name="hospedaje"
+                            value="no"
+                        >
+
+                        <span>
+                            No lo necesito
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="enviar-rsvp"
+            >
+                CONFIRMAR
+            </button>
+
+
+            <p class="demo-formulario">
+                DEMOSTRACIÓN · LOS DATOS AÚN NO SE ENVÍAN
+            </p>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
