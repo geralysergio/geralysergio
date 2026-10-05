@@ -1,147 +1,140 @@
-/* =========================================================
-   COLORES
-========================================================= */
-
 :root {
-
     --azul: #173F8A;
     --azul-oscuro: #102A5C;
+    --azul-rey: #17469A;
     --azul-suave: #DCE6F4;
 
-    --papel: #F5EFE5;
+    --papel: #EEE4D4;
     --papel-claro: #FBF8F2;
 
     --blanco: #FFFDF9;
-
-    --texto: #173F8A;
-
 }
 
 
-/* =========================================================
-   GENERAL
-========================================================= */
-
 * {
-
     box-sizing: border-box;
-
     margin: 0;
     padding: 0;
-
 }
 
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    background: #09172F;
 
-    background:
-        var(--papel-claro);
-
-    color:
-        var(--texto);
+    color: var(--azul);
 
     overflow-x: hidden;
-
 }
 
 
 body.bloqueado {
-
     overflow: hidden;
-
 }
 
 
 button,
 input,
 select {
-
     font: inherit;
-
 }
 
 
 button {
-
     cursor: pointer;
-
 }
 
 
 /* =========================================================
-   TIPOGRAFÍA GENERAL
+   VIDEO PERMANENTE
+========================================================= */
+
+.fondo-video {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100svh;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background: var(--azul-oscuro);
+}
+
+
+.fondo-video video {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* =========================================================
+   GENERALES
 ========================================================= */
 
 .microtitulo {
-
     font-size: 8px;
 
     letter-spacing: 4px;
 
-    line-height: 1.8;
+    line-height: 1.7;
 
     text-align: center;
 
-    margin-bottom: 22px;
-
+    margin-bottom: 18px;
 }
 
 
 .microtitulo.azul {
-
-    color:
-        var(--azul);
-
+    color: var(--azul);
 }
 
 
 .microtitulo.claro {
+    color: var(--blanco);
 
-    color:
-        var(--blanco);
-
-    opacity: .8;
-
+    opacity: .85;
 }
 
 
 .icono-lineal {
-
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
     fill: none;
 
-    stroke:
-        currentColor;
+    stroke: currentColor;
 
     stroke-width: 1.25;
 
     stroke-linecap: round;
 
     stroke-linejoin: round;
-
 }
 
 
 /* =========================================================
-   SOBRE
+   SOBRE DE ENTRADA
 ========================================================= */
 
 .entrada {
-
     position: fixed;
 
     inset: 0;
@@ -151,29 +144,24 @@ button {
 
     z-index: 9999;
 
-    background:
-        #e8dece;
+    background: #e8dece;
 
     transition:
         opacity 1.1s ease,
         visibility 1.1s ease;
-
 }
 
 
 .entrada.finalizada {
-
     opacity: 0;
 
     visibility: hidden;
 
     pointer-events: none;
-
 }
 
 
 .sobre-full {
-
     position: relative;
 
     width: 100%;
@@ -188,16 +176,12 @@ button {
             #eee3d3 48%,
             #e5d8c6 100%
         );
-
 }
 
 
-/* =========================================================
-   TEXTURA
-========================================================= */
+/* TEXTURA */
 
 .textura-papel {
-
     position: absolute;
 
     inset: 0;
@@ -209,7 +193,6 @@ button {
     opacity: .32;
 
     background-image:
-
         repeating-linear-gradient(
             0deg,
             rgba(90,65,35,.04) 0,
@@ -225,16 +208,14 @@ button {
             transparent 1px,
             transparent 5px
         );
-
 }
 
 
 /* =========================================================
-   PLIEGUES
+   PLIEGUES DEL SOBRE
 ========================================================= */
 
 .pliegue {
-
     position: absolute;
 
     bottom: 0;
@@ -245,12 +226,10 @@ button {
     z-index: 2;
 
     pointer-events: none;
-
 }
 
 
 .pliegue-izquierdo {
-
     left: 0;
 
     clip-path:
@@ -272,12 +251,10 @@ button {
             8px -5px 10px
             rgba(80,55,30,.16)
         );
-
 }
 
 
 .pliegue-derecho {
-
     right: 0;
 
     clip-path:
@@ -299,61 +276,60 @@ button {
             -8px -5px 10px
             rgba(80,55,30,.16)
         );
-
 }
 
 
 /* =========================================================
-   DESTINATARIO
+   INVITADO
 ========================================================= */
 
 .destinatario {
-
     position: absolute;
 
     left: 50%;
     top: 25%;
 
     transform:
-        translate(-50%,-50%);
+        translate(-50%, -50%);
 
     width: 90%;
-
     max-width: 600px;
 
     text-align: center;
 
     z-index: 4;
 
+    color: var(--azul-oscuro);
+
     transition:
         opacity .6s ease,
         transform .8s ease;
+}
 
+
+.destinatario .microtitulo {
+    margin-bottom: 22px;
 }
 
 
 .destinatario h1 {
-
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(34px,8vw,60px);
+        clamp(34px, 8vw, 60px);
 
     font-style: italic;
 
     font-weight: normal;
 
-    color:
-        var(--azul-oscuro);
-
+    color: var(--azul-oscuro);
 }
 
 
 .lugares {
-
     margin-top: 18px;
 
     font-family:
@@ -366,21 +342,19 @@ button {
     font-style: italic;
 
     line-height: 1.7;
-
 }
 
 
 .lugares strong {
-
     display: block;
 
     margin-top: 3px;
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
     font-style: normal;
 
+    font-size: 16px;
 }
 
 
@@ -389,7 +363,6 @@ button {
 ========================================================= */
 
 .solapa-full {
-
     position: absolute;
 
     left: 0;
@@ -423,18 +396,15 @@ button {
             rgba(65,45,25,.22)
         );
 
-    transform-origin:
-        bottom center;
+    transform-origin: bottom center;
 
     transition:
         transform 1.5s
         cubic-bezier(.65,0,.25,1);
-
 }
 
 
 .borde-solapa {
-
     position: absolute;
 
     inset: 0;
@@ -445,7 +415,6 @@ button {
             rgba(90,60,30,.15),
             transparent 20%
         );
-
 }
 
 
@@ -454,14 +423,13 @@ button {
 ========================================================= */
 
 .sello-monograma {
-
     position: absolute;
 
     left: 50%;
-    top: 62%;
+    top: 80%;
 
     transform:
-        translate(-50%,-50%);
+        translate(-50%, -50%);
 
     z-index: 30;
 
@@ -494,12 +462,10 @@ button {
         2.8s
         ease-in-out
         infinite;
-
 }
 
 
 .monograma-sello-img {
-
     position: absolute;
 
     left: 50%;
@@ -511,12 +477,11 @@ button {
     object-fit: contain;
 
     transform:
-        translate(-50%,-46%);
+        translate(-50%, -52%);
 
     transform-origin: center;
 
     pointer-events: none;
-
 }
 
 
@@ -524,26 +489,24 @@ button {
 
     0%,
     100% {
-
         transform:
-            translate(-50%,-50%)
+            translate(-50%, -50%)
             scale(1);
-
     }
 
     50% {
-
         transform:
-            translate(-50%,-50%)
+            translate(-50%, -50%)
             scale(1.035);
-
     }
-
 }
 
 
-.abrir-texto {
+/* =========================================================
+   TEXTO ABRIR
+========================================================= */
 
+.abrir-texto {
     position: absolute;
 
     left: 50%;
@@ -562,113 +525,55 @@ button {
 
     letter-spacing: 3px;
 
-    color:
-        var(--azul-oscuro);
+    color: var(--azul-oscuro);
 
     opacity: .6;
-
 }
 
 
 /* =========================================================
-   SOBRE ABIERTO
+   APERTURA DEL SOBRE
 ========================================================= */
 
 .sobre-full.abierto .solapa-full {
-
     transform:
         translateY(110%);
-
 }
 
 
 .sobre-full.abierto .pliegue {
-
     opacity: 0;
 
     transition:
         opacity .8s ease;
-
 }
 
 
 .sobre-full.abierto .sello-monograma {
-
     opacity: 0;
 
     animation: none;
 
     transform:
-        translate(-50%,-50%)
+        translate(-50%, -50%)
         scale(.75);
 
-    transition:
-        .5s ease;
-
+    transition: .5s ease;
 }
 
 
 .sobre-full.abierto .destinatario {
-
     opacity: 0;
 
     transform:
-        translate(-50%,-65%);
-
+        translate(-50%, -65%);
 }
 
 
-/* =========================================================
-   VIDEO
-========================================================= */
+.sobre-full.abierto .abrir-texto {
+    opacity: 0;
 
-.hero-video {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 100svh;
-
-    overflow: hidden;
-
-    background:
-        var(--azul-oscuro);
-
-}
-
-
-.hero-video video {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    z-index: 1;
-
-}
-
-
-.video-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 2;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(5,18,45,.15),
-            rgba(5,18,45,.42)
-        );
-
+    transition: opacity .4s ease;
 }
 
 
@@ -676,8 +581,33 @@ button {
    SALMO
 ========================================================= */
 
-.salmo-contenido {
+.hero-video {
+    position: relative;
 
+    width: 100%;
+    height: 100svh;
+
+    color: var(--blanco);
+
+    overflow: hidden;
+}
+
+
+.capa-salmo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,16,38,.16),
+            rgba(5,16,38,.43)
+        );
+}
+
+
+.salmo-contenido {
     position: relative;
 
     z-index: 4;
@@ -694,17 +624,13 @@ button {
 
     text-align: center;
 
-    padding:
-        30px 30px 135px;
+    padding: 30px 25px 135px;
 
-    color:
-        var(--blanco);
-
+    color: var(--blanco);
 }
 
 
 .versiculo {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -719,189 +645,197 @@ button {
 
     text-shadow:
         0 3px 18px
-        rgba(0,0,0,.25);
-
+        rgba(0,0,0,.30);
 }
 
 
 .linea-texto {
-
     opacity: 0;
 
     transform:
         translateY(20px);
-
 }
 
 
 .salmo-contenido.visible .texto-1 {
-
     animation:
-        apareceTexto 1.2s
-        forwards .5s;
-
+        apareceTexto
+        1.2s forwards .5s;
 }
 
 
 .salmo-contenido.visible .texto-2 {
-
     animation:
-        apareceTexto 1.2s
-        forwards 1.5s;
-
+        apareceTexto
+        1.2s forwards 1.5s;
 }
 
 
 .salmo-contenido.visible .texto-3 {
-
     animation:
-        apareceTexto 1.2s
-        forwards 2.5s;
-
+        apareceTexto
+        1.2s forwards 2.5s;
 }
 
 
 .salmo-contenido.visible .texto-4 {
-
     animation:
-        apareceTexto 1.2s
-        forwards 3.5s;
-
+        apareceTexto
+        1.2s forwards 3.5s;
 }
 
 
 @keyframes apareceTexto {
 
     to {
-
         opacity: 1;
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
 .referencia {
-
-    margin-top: 25px;
+    margin-top: 22px;
 
     font-size: 8px;
 
     letter-spacing: 4px;
 
     opacity: 0;
-
 }
 
 
 .salmo-contenido.visible .referencia {
-
     animation:
-        apareceTexto 1s
-        forwards 4.5s;
-
+        apareceTexto
+        1s forwards 4.5s;
 }
 
 
 /* =========================================================
-   CORDÓN
-
-   IMPORTANTE:
-   Aquí controlamos la distancia respecto a
-   ECLESIASTÉS 4:12 con margin-top.
-
+   CORDÓN Y MONOGRAMA
 ========================================================= */
 
-.cordon {
-
+.cordon-monograma {
     position: relative;
 
-    flex: 0 0 auto;
+    width: 170px;
+    height: 125px;
 
-    width: 150px;
+    margin-top: 55px;
+}
 
-    height: 95px;
 
-    margin-top: 52px;
+.cordon {
+    position: absolute;
 
+    inset: 0;
 }
 
 
 .cordon-linea {
-
     position: absolute;
 
-    top: 50%;
+    top: 35%;
     left: 50%;
 
     width: 0;
-
     height: 1px;
 
-    background:
-        var(--blanco);
+    background: var(--blanco);
 
-    transform-origin:
-        left center;
-
+    transform-origin: left center;
 }
 
 
 .salmo-contenido.visible .cordon-1 {
-
     transform:
         translate(-50%,-50%)
         rotate(-35deg);
 
     animation:
-        dibujarLinea
-        1.4s
-        forwards
-        5.2s;
-
+        dibujarLinea 1.2s forwards 5.2s,
+        ocultarLinea .8s forwards 7.2s;
 }
 
 
 .salmo-contenido.visible .cordon-2 {
-
     transform:
         translate(-50%,-50%);
 
     animation:
-        dibujarLinea
-        1.4s
-        forwards
-        5.5s;
-
+        dibujarLinea 1.2s forwards 5.45s,
+        ocultarLinea .8s forwards 7.2s;
 }
 
 
 .salmo-contenido.visible .cordon-3 {
-
     transform:
         translate(-50%,-50%)
         rotate(35deg);
 
     animation:
-        dibujarLinea
-        1.4s
-        forwards
-        5.8s;
-
+        dibujarLinea 1.2s forwards 5.7s,
+        ocultarLinea .8s forwards 7.2s;
 }
 
 
 @keyframes dibujarLinea {
 
     to {
-
         width: 110px;
-
     }
+}
 
+
+@keyframes ocultarLinea {
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+.monograma-salmo {
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    width: 135px;
+    height: 135px;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.55);
+}
+
+
+.salmo-contenido.visible .monograma-salmo {
+    animation:
+        aparecerMonograma
+        1.5s
+        cubic-bezier(.2,.8,.2,1)
+        forwards
+        7s;
+}
+
+
+@keyframes aparecerMonograma {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
 }
 
 
@@ -910,14 +844,12 @@ button {
 ========================================================= */
 
 .control-musica {
-
     position: absolute;
 
-    z-index: 10;
+    z-index: 20;
 
     left: 50%;
-
-    bottom: 58px;
+    bottom: 55px;
 
     transform:
         translateX(-50%);
@@ -940,19 +872,13 @@ button {
 
     background: transparent;
 
-    color:
-        var(--blanco);
+    color: var(--blanco);
 
-    padding:
-        10px 6px;
-
+    padding: 10px 6px;
 }
 
 
-/* CÍRCULO DEL CONTROL */
-
 .icono-musica {
-
     width: 30px;
     height: 30px;
 
@@ -969,17 +895,10 @@ button {
         rgba(255,255,255,.8);
 
     border-radius: 50%;
-
-    color:
-        currentColor;
-
 }
 
 
-/* PLAY DIBUJADO CON CSS */
-
 .play-icon {
-
     display: block;
 
     width: 0;
@@ -995,14 +914,10 @@ button {
         7px solid currentColor;
 
     margin-left: 2px;
-
 }
 
 
-/* PAUSA DIBUJADA CON CSS */
-
 .pause-icon {
-
     display: flex;
 
     align-items: center;
@@ -1010,45 +925,36 @@ button {
     justify-content: center;
 
     gap: 3px;
-
 }
 
 
 .pause-icon i {
-
     display: block;
 
     width: 2px;
     height: 9px;
 
-    background:
-        currentColor;
-
+    background: currentColor;
 }
 
 
 .texto-control-musica {
-
     display: flex;
 
     flex-direction: column;
 
     align-items: flex-start;
-
 }
 
 
 .musica-label {
-
     font-size: 6px;
 
     letter-spacing: 2px;
-
 }
 
 
 .estado-musica {
-
     margin-top: 3px;
 
     font-family:
@@ -1061,20 +967,15 @@ button {
     font-style: italic;
 
     opacity: .8;
-
 }
 
 
-/* CONTROL FLOTANTE */
-
 .control-musica.flotante {
-
     position: fixed;
 
     left: auto;
 
     right: 18px;
-
     bottom: 18px;
 
     transform: none;
@@ -1093,52 +994,42 @@ button {
     border-radius: 50%;
 
     background:
-        rgba(255,253,249,.90);
+        rgba(255,253,249,.93);
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
     box-shadow:
         0 5px 20px
-        rgba(0,0,0,.08);
+        rgba(0,0,0,.12);
 
-    backdrop-filter:
-        blur(10px);
+    backdrop-filter: blur(10px);
 
-    -webkit-backdrop-filter:
-        blur(10px);
-
+    -webkit-backdrop-filter: blur(10px);
 }
 
 
 .control-musica.flotante .texto-control-musica {
-
     display: none;
-
 }
 
 
 .control-musica.flotante .icono-musica {
-
-    border: 0;
-
     width: 100%;
     height: 100%;
 
     flex-basis: 100%;
 
+    border: 0;
 }
 
 
 .continuar-video {
-
     position: absolute;
 
     z-index: 5;
 
     left: 50%;
-
-    bottom: 18px;
+    bottom: 17px;
 
     transform:
         translateX(-50%);
@@ -1147,51 +1038,56 @@ button {
 
     text-align: center;
 
-    color:
-        var(--blanco);
+    color: var(--blanco);
 
     font-size: 6px;
 
     letter-spacing: 3px;
 
     opacity: .55;
-
 }
 
 
 /* =========================================================
-   NOVIOS
+   NOVIOS SOBRE EL VIDEO
 ========================================================= */
 
 .novios {
+    position: relative;
 
-    min-height: 100svh;
-
-    background:
-        var(--azul);
-
-    color:
-        var(--blanco);
+    min-height: 90svh;
 
     display: flex;
-
-    flex-direction: column;
 
     align-items: center;
 
     justify-content: center;
 
+    color: var(--blanco);
+
     text-align: center;
 
-    padding:
-        30px 25px;
+    background: transparent;
+}
 
+
+.contenido-novios {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 65px 22px;
+
+    text-shadow:
+        0 3px 20px
+        rgba(0,0,0,.35);
 }
 
 
 .monograma-novios-contenedor {
-
-    height: 135px;
+    height: 105px;
 
     display: flex;
 
@@ -1199,115 +1095,127 @@ button {
 
     justify-content: center;
 
-    margin-bottom: 5px;
-
+    margin-bottom: 16px;
 }
 
 
 .monograma-novios {
-
-    width: 175px;
+    width: 145px;
 
     height: auto;
-
 }
 
 
 .eyebrow {
-
     font-size: 8px;
 
     letter-spacing: 4px;
 
     line-height: 1.8;
 
-    margin-bottom: 20px;
-
+    margin-bottom: 28px;
 }
 
 
 .nombres {
-
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(52px,14vw,100px);
+        clamp(52px,14vw,95px);
 
     line-height: .88;
 
     font-weight: normal;
-
 }
 
 
 .nombres span {
-
     display: block;
 
-    margin: 14px;
+    margin: 12px;
 
-    font-size: 28px;
+    font-size: 27px;
 
     font-style: italic;
 
-    color:
-        var(--azul-suave);
-
+    color: var(--azul-suave);
 }
 
 
 .ornamento {
-
     width: 45px;
-
     height: 1px;
 
-    margin-top: 30px;
+    margin: 28px auto 0;
 
-    background:
-        var(--blanco);
+    background: var(--blanco);
 
-    opacity: .6;
-
+    opacity: .65;
 }
 
 
 .fecha {
-
-    margin-top: 22px;
+    margin-top: 20px;
 
     font-size: 12px;
 
     letter-spacing: 6px;
-
 }
 
 
 /* =========================================================
-   INFORMACIÓN PRINCIPAL
+   TARJETAS SOBRE EL VIDEO
 ========================================================= */
 
-.historia-evento {
-
+.zona-tarjeta {
     position: relative;
 
+    width: 100%;
+
+    min-height: 80svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 38px 18px;
+
+    background: transparent;
+}
+
+
+.tarjeta {
+    position: relative;
+
+    width: min(100%,720px);
+
+    padding: 55px 42px;
+
     background:
-        linear-gradient(
-            180deg,
-            #F7F1E7 0%,
-            #FFFDF9 45%,
-            #F5EFE5 100%
-        );
+        rgba(251,248,242,.96);
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
-    padding:
-        110px 25px 130px;
+    text-align: center;
 
+    border-radius: 3px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(3,12,30,.18);
+}
+
+
+.tarjeta-azul {
+    background:
+        rgba(17,55,128,.96);
+
+    color: var(--blanco);
 }
 
 
@@ -1315,79 +1223,62 @@ button {
    COUNTDOWN
 ========================================================= */
 
-.countdown-bloque {
+.tarjeta-countdown {
+    padding-top: 58px;
 
-    max-width: 760px;
-
-    margin:
-        0 auto 160px;
-
-    text-align: center;
-
+    padding-bottom: 58px;
 }
 
 
 .fecha-grande {
-
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(35px,8vw,65px);
+        clamp(35px,8vw,62px);
 
     font-weight: normal;
 
-    margin-bottom: 55px;
-
+    margin-bottom: 38px;
 }
 
 
 .countdown {
-
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
         repeat(4,1fr);
-
 }
 
 
 .contador-item {
-
     position: relative;
 
-    padding:
-        0 12px;
-
+    padding: 0 10px;
 }
 
 
 .contador-item:not(:last-child)::after {
-
     content: "";
 
     position: absolute;
 
     right: 0;
-
-    top: 8px;
+    top: 5px;
 
     width: 1px;
-
-    height: 45px;
+    height: 43px;
 
     background:
         rgba(23,63,138,.18);
-
 }
 
 
 .contador-item span {
-
     display: block;
 
     font-family:
@@ -1396,23 +1287,20 @@ button {
         serif;
 
     font-size:
-        clamp(30px,7vw,52px);
+        clamp(30px,7vw,50px);
 
     font-weight: normal;
-
 }
 
 
 .contador-item p {
-
-    margin-top: 10px;
+    margin-top: 8px;
 
     font-size: 6px;
 
     letter-spacing: 2px;
 
     opacity: .65;
-
 }
 
 
@@ -1420,27 +1308,19 @@ button {
    ITINERARIO
 ========================================================= */
 
-.itinerario {
-
-    max-width: 550px;
-
-    margin:
-        0 auto 160px;
-
+.tarjeta-itinerario {
+    max-width: 620px;
 }
 
 
 .timeline {
-
     position: relative;
 
-    margin-top: 60px;
-
+    margin-top: 38px;
 }
 
 
 .timeline-linea {
-
     position: absolute;
 
     left: 50%;
@@ -1455,41 +1335,33 @@ button {
 
     transform:
         translateX(-50%);
-
 }
 
 
 .momento {
-
     position: relative;
 
     width: 50%;
 
-    min-height: 170px;
+    min-height: 145px;
 
-    padding:
-        0 40px;
+    padding: 0 35px;
 
     text-align: right;
-
 }
 
 
 .momento:nth-of-type(even) {
-
     margin-left: 50%;
 
     text-align: left;
-
 }
 
 
 .punto {
-
     position: absolute;
 
     top: 7px;
-
     right: -5px;
 
     width: 10px;
@@ -1501,23 +1373,18 @@ button {
 
     border-radius: 50%;
 
-    background:
-        var(--papel-claro);
-
+    background: var(--papel-claro);
 }
 
 
 .momento:nth-of-type(even) .punto {
-
     right: auto;
 
     left: -5px;
-
 }
 
 
 .hora {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -1527,305 +1394,11 @@ button {
 
     font-size: 15px;
 
-    margin-bottom: 8px;
-
+    margin-bottom: 6px;
 }
 
 
 .momento h3 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 30px;
-
-    font-weight: normal;
-
-    margin-bottom: 10px;
-
-}
-
-
-.momento > p:last-child {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    opacity: .65;
-
-}
-
-
-/* =========================================================
-   UBICACIÓN
-========================================================= */
-
-.ubicacion {
-
-    max-width: 520px;
-
-    margin: auto;
-
-    text-align: center;
-
-}
-
-
-.icono-ubicacion {
-
-    margin-bottom: 30px;
-
-}
-
-
-.ubicacion h2 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(40px,9vw,62px);
-
-    font-weight: normal;
-
-    margin-bottom: 20px;
-
-}
-
-
-.direccion {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-}
-
-
-.boton-lineal {
-
-    display: inline-block;
-
-    margin-top: 35px;
-
-    padding:
-        14px 24px;
-
-    border:
-        1px solid
-        var(--azul);
-
-    background:
-        transparent;
-
-    color:
-        var(--azul);
-
-    font-size: 7px;
-
-    letter-spacing: 3px;
-
-    text-decoration: none;
-
-}
-
-
-/* =========================================================
-   DRESS CODE
-========================================================= */
-
-.dress-code {
-
-    background:
-        var(--azul);
-
-    color:
-        var(--blanco);
-
-    padding:
-        130px 25px;
-
-}
-
-
-.dress-contenido {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    text-align: center;
-
-}
-
-
-.icono-claro {
-
-    margin-bottom: 30px;
-
-}
-
-
-.dress-code h2 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(50px,11vw,82px);
-
-    font-weight: normal;
-
-}
-
-
-.frase-dress {
-
-    margin-top: 35px;
-
-    font-size: 9px;
-
-    letter-spacing: 2.5px;
-
-    line-height: 2.1;
-
-}
-
-
-.frase-dress em {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 20px;
-
-    letter-spacing: 0;
-
-}
-
-
-.separador-claro {
-
-    width: 1px;
-
-    height: 65px;
-
-    margin:
-        55px auto;
-
-    background:
-        rgba(255,255,255,.45);
-
-}
-
-
-.titulo-recomendaciones {
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.intro-recomendaciones {
-
-    max-width: 520px;
-
-    margin:
-        0 auto 55px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    font-style: italic;
-
-    opacity: .9;
-
-}
-
-
-.recomendaciones-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 1px;
-
-    background:
-        rgba(255,255,255,.25);
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.25);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.25);
-
-}
-
-
-.recomendacion {
-
-    background:
-        var(--azul);
-
-    padding:
-        40px 35px;
-
-}
-
-
-.numero-recomendacion {
-
-    display: block;
-
-    margin-bottom: 15px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-style: italic;
-
-    opacity: .5;
-
-}
-
-
-.recomendacion h3 {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -1835,13 +1408,370 @@ button {
 
     font-weight: normal;
 
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+}
 
+
+.momento > p:last-child {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    opacity: .68;
+}
+
+
+/* =========================================================
+   SECCIÓN LIBRE SOBRE VIDEO
+========================================================= */
+
+.respiro-video {
+    position: relative;
+
+    min-height: 55svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--blanco);
+
+    text-align: center;
+
+    background: transparent;
+}
+
+
+.frase-video {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 25px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(32px,8vw,62px);
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 4px 20px
+        rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   UBICACIÓN
+========================================================= */
+
+.ubicacion {
+    max-width: 600px;
+}
+
+
+.icono-ubicacion {
+    margin-bottom: 20px;
+}
+
+
+.ubicacion h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(40px,9vw,60px);
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+
+.direccion {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+.boton-lineal {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    padding: 14px 24px;
+
+    border:
+        1px solid
+        var(--azul);
+
+    background: transparent;
+
+    color: var(--azul);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+.dress-contenido {
+    max-width: 680px;
+}
+
+
+.icono-claro {
+    margin-bottom: 18px;
+}
+
+
+.dress-contenido h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px,11vw,76px);
+
+    font-weight: normal;
+}
+
+
+.frase-dress {
+    margin-top: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    line-height: 2;
+}
+
+
+.frase-dress em {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 20px;
+
+    letter-spacing: 0;
+}
+
+
+/* COLORES RESERVADOS */
+
+.colores-reservados {
+    max-width: 470px;
+
+    margin: 32px auto 0;
+
+    padding: 22px 15px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.28);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.28);
+}
+
+
+.titulo-colores {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    opacity: .7;
+}
+
+
+.muestras-colores {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 16px 0;
+}
+
+
+.muestra {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+}
+
+
+.muestra.blanco {
+    background: #FFFDF9;
+}
+
+
+.muestra.beige {
+    background: #E5D6C0;
+}
+
+
+.muestra.azul-rey {
+    background: #1649A2;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+}
+
+
+.texto-colores {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.texto-colores strong {
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+
+.separador-claro {
+    width: 1px;
+    height: 40px;
+
+    margin: 32px auto;
+
+    background:
+        rgba(255,255,255,.4);
+}
+
+
+.titulo-recomendaciones {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 16px;
+}
+
+
+.intro-recomendaciones {
+    max-width: 520px;
+
+    margin: 0 auto 32px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+
+    font-style: italic;
+
+    opacity: .9;
+}
+
+
+.recomendaciones-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.25);
+}
+
+
+.recomendacion {
+    padding: 28px 25px;
+}
+
+
+.recomendacion:first-child {
+    border-right:
+        1px solid
+        rgba(255,255,255,.25);
+}
+
+
+.numero-recomendacion {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-style: italic;
+
+    opacity: .5;
+}
+
+
+.recomendacion h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 26px;
+
+    font-weight: normal;
+
+    margin-bottom: 12px;
 }
 
 
 .recomendacion p {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -1849,10 +1779,9 @@ button {
 
     font-size: 14px;
 
-    line-height: 1.7;
+    line-height: 1.65;
 
-    opacity: .8;
-
+    opacity: .82;
 }
 
 
@@ -1860,41 +1789,82 @@ button {
    REGALOS
 ========================================================= */
 
-.regalos {
-
-    background:
-        linear-gradient(
-            180deg,
-            #F5EFE5,
-            #FFFDF9
-        );
-
-    padding:
-        140px 25px;
-
-}
-
-
 .contenido-angosto {
-
-    max-width: 530px;
-
-    margin: auto;
-
-    text-align: center;
-
+    max-width: 580px;
 }
 
 
 .icono-regalo {
-
-    margin-bottom: 32px;
-
+    margin-bottom: 20px;
 }
 
 
 .titulo-editorial {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
+    font-size:
+        clamp(43px,10vw,65px);
+
+    font-weight: normal;
+}
+
+
+.texto-editorial {
+    margin-top: 26px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   MISIÓN SOBRE VIDEO
+========================================================= */
+
+.mision-video {
+    position: relative;
+
+    min-height: 90svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--blanco);
+
+    padding: 70px 22px;
+
+    background: transparent;
+}
+
+
+.contenido-mision {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%,720px);
+
+    text-align: center;
+
+    text-shadow:
+        0 3px 18px
+        rgba(0,0,0,.40);
+}
+
+
+.contenido-mision h2 {
     font-family:
         Georgia,
         "Times New Roman",
@@ -1904,89 +1874,23 @@ button {
         clamp(45px,10vw,70px);
 
     font-weight: normal;
-
-}
-
-
-.texto-editorial {
-
-    margin-top: 35px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 16px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================================================
-   MISIÓN
-========================================================= */
-
-.mision {
-
-    background:
-        var(--papel-claro);
-
-    color:
-        var(--azul);
-
-    padding:
-        130px 25px 150px;
-
-}
-
-
-.contenido-mision {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    text-align: center;
-
-}
-
-
-.contenido-mision h2 {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(48px,10vw,75px);
-
-    font-weight: normal;
-
-    margin-top: 10px;
-
 }
 
 
 .misiones-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap: 20px;
+    gap: 18px;
 
-    margin-top: 70px;
-
+    margin-top: 48px;
 }
 
 
 .mision-item {
-
-    min-height: 135px;
+    min-height: 120px;
 
     display: flex;
 
@@ -1996,21 +1900,19 @@ button {
 
     justify-content: center;
 
-    gap: 18px;
+    gap: 14px;
 
     border-top:
         1px solid
-        rgba(23,63,138,.18);
+        rgba(255,255,255,.45);
 
     border-bottom:
         1px solid
-        rgba(23,63,138,.18);
-
+        rgba(255,255,255,.45);
 }
 
 
 .mision-item p {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -2019,13 +1921,11 @@ button {
     font-size: 17px;
 
     font-style: italic;
-
 }
 
 
 .mision-cierre {
-
-    margin-top: 70px;
+    margin-top: 48px;
 
     font-family:
         Georgia,
@@ -2033,12 +1933,11 @@ button {
         serif;
 
     font-size:
-        clamp(24px,5vw,34px);
+        clamp(23px,5vw,32px);
 
     line-height: 1.4;
 
     font-style: italic;
-
 }
 
 
@@ -2046,55 +1945,31 @@ button {
    RSVP
 ========================================================= */
 
-.rsvp {
-
-    min-height: 90svh;
-
-    background:
-        var(--azul-oscuro);
-
-    color:
-        var(--blanco);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding:
-        100px 25px;
-
+.zona-rsvp {
+    min-height: 95svh;
 }
 
 
 .rsvp-contenido {
-
-    max-width: 600px;
-
-    text-align: center;
-
+    max-width: 620px;
 }
 
 
-.rsvp h2 {
-
+.rsvp-contenido h2 {
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
     font-size:
-        clamp(50px,11vw,80px);
+        clamp(48px,11vw,76px);
 
     font-weight: normal;
-
 }
 
 
 .rsvp-intro {
-
-    margin-top: 30px;
+    margin-top: 24px;
 
     font-family:
         Georgia,
@@ -2103,68 +1978,91 @@ button {
 
     font-size: 16px;
 
-    line-height: 1.8;
-
+    line-height: 1.7;
 }
 
 
 .rsvp-intro strong {
+    font-weight: normal;
+
+    font-style: italic;
+
+    font-size: 20px;
+}
+
+
+.fecha-limite {
+    max-width: 470px;
+
+    margin: 34px auto 0;
+
+    padding: 22px 10px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.35);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.35);
+}
+
+
+.fecha-limite p {
+    margin-bottom: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    opacity: .7;
+}
+
+
+.fecha-limite strong {
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(18px,4vw,24px);
 
     font-weight: normal;
 
     font-style: italic;
 
+    line-height: 1.45;
 }
 
 
 .boton-rsvp {
+    margin-top: 32px;
 
-    margin-top: 45px;
-
-    padding:
-        16px 28px;
+    padding: 16px 28px;
 
     border:
         1px solid
         rgba(255,255,255,.75);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        var(--blanco);
+    color: var(--blanco);
 
     font-size: 8px;
 
     letter-spacing: 3px;
-
-}
-
-
-.nota-rsvp {
-
-    margin-top: 30px;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-
-    line-height: 1.8;
-
-    opacity: .55;
-
 }
 
 
 .monograma-rsvp {
-
     display: block;
 
-    width: 120px;
+    width: 110px;
 
-    margin:
-        60px auto 0;
-
+    margin: 38px auto 0;
 }
 
 
@@ -2173,7 +2071,6 @@ button {
 ========================================================= */
 
 .modal-rsvp {
-
     position: fixed;
 
     inset: 0;
@@ -2195,81 +2092,60 @@ button {
     transition:
         opacity .4s ease,
         visibility .4s ease;
-
 }
 
 
 .modal-rsvp.activo {
-
     opacity: 1;
 
     visibility: visible;
-
 }
 
 
 .modal-fondo {
-
     position: absolute;
 
     inset: 0;
 
     background:
-        rgba(7,20,45,.65);
+        rgba(7,20,45,.72);
 
-    backdrop-filter:
-        blur(7px);
+    backdrop-filter: blur(7px);
 
-    -webkit-backdrop-filter:
-        blur(7px);
-
+    -webkit-backdrop-filter: blur(7px);
 }
 
 
 .formulario-rsvp {
-
     position: relative;
 
     z-index: 2;
 
-    width:
-        min(100%,520px);
+    width: min(100%,520px);
 
     max-height: 90svh;
 
     overflow-y: auto;
 
-    background:
-        var(--papel-claro);
+    background: var(--papel-claro);
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
-    padding:
-        55px 45px;
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.22);
-
+    padding: 50px 42px;
 }
 
 
 .cerrar-rsvp {
-
     position: absolute;
 
     top: 15px;
-
     right: 18px;
 
     border: 0;
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
     font-family:
         Georgia,
@@ -2277,12 +2153,10 @@ button {
         serif;
 
     font-size: 30px;
-
 }
 
 
 .formulario-rsvp h2 {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -2294,14 +2168,11 @@ button {
     font-weight: normal;
 
     text-align: center;
-
 }
 
 
 .cupos-formulario {
-
-    margin:
-        15px 0 40px;
+    margin: 15px 0 8px;
 
     text-align: center;
 
@@ -2311,55 +2182,59 @@ button {
         serif;
 
     font-style: italic;
-
 }
 
 
 .cupos-formulario strong {
-
     font-weight: normal;
+}
 
+
+.limite-formulario {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.7;
+
+    opacity: .65;
 }
 
 
 .campo {
-
-    padding:
-        25px 0;
+    padding: 22px 0;
 
     border-top:
         1px solid
         rgba(23,63,138,.15);
-
 }
 
 
 .campo > label {
-
     display: block;
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 
     font-size: 8px;
 
     letter-spacing: 2px;
-
 }
 
 
 .opciones {
-
     display: flex;
 
     flex-direction: column;
 
     gap: 13px;
-
 }
 
 
 .opcion {
-
     display: flex;
 
     align-items: center;
@@ -2372,21 +2247,16 @@ button {
         serif;
 
     font-size: 15px;
-
 }
 
 
 .opcion input {
-
-    accent-color:
-        var(--azul);
-
+    accent-color: var(--azul);
 }
 
 
 .campo select,
 .campo input[type="text"] {
-
     width: 100%;
 
     border: 0;
@@ -2397,14 +2267,11 @@ button {
 
     border-radius: 0;
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        var(--azul);
+    color: var(--azul);
 
-    padding:
-        12px 2px;
+    padding: 12px 2px;
 
     outline: none;
 
@@ -2414,31 +2281,25 @@ button {
         serif;
 
     font-size: 16px;
-
 }
 
 
 .hospedaje {
-
-    margin-top: 10px;
-
+    margin-top: 8px;
 }
 
 
 .hospedaje-etiqueta {
-
     margin-bottom: 12px;
 
     font-size: 8px;
 
     letter-spacing: 3px;
-
 }
 
 
 .texto-hospedaje {
-
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     font-family:
         Georgia,
@@ -2448,15 +2309,13 @@ button {
     font-size: 15px;
 
     line-height: 1.6;
-
 }
 
 
 .enviar-rsvp {
-
     width: 100%;
 
-    margin-top: 20px;
+    margin-top: 18px;
 
     padding: 16px;
 
@@ -2464,21 +2323,17 @@ button {
         1px solid
         var(--azul);
 
-    background:
-        var(--azul);
+    background: var(--azul);
 
-    color:
-        var(--blanco);
+    color: var(--blanco);
 
     font-size: 8px;
 
     letter-spacing: 3px;
-
 }
 
 
 .demo-formulario {
-
     margin-top: 18px;
 
     text-align: center;
@@ -2488,35 +2343,30 @@ button {
     letter-spacing: 2px;
 
     opacity: .5;
-
 }
 
 
 /* =========================================================
-   ANIMACIÓN SCROLL
+   ANIMACIONES DE SCROLL
 ========================================================= */
 
 .reveal {
-
     opacity: 0;
 
     transform:
-        translateY(35px);
+        translateY(28px);
 
     transition:
         opacity .9s ease,
         transform .9s ease;
-
 }
 
 
 .reveal.visible {
-
     opacity: 1;
 
     transform:
         translateY(0);
-
 }
 
 
@@ -2524,174 +2374,235 @@ button {
    MÓVIL
 ========================================================= */
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
 
+    /* SOBRE */
 
     .destinatario {
-
         top: 25%;
-
     }
 
 
     .solapa-full {
-
         height: 58%;
-
     }
 
 
     .sello-monograma {
-
         width: 110px;
-
         height: 110px;
-
-    }
-
-
-    .salmo-contenido {
-
-        padding:
-            25px 23px 140px;
-
-    }
-
-
-    .versiculo {
-
-        font-size: 25px;
-
     }
 
 
     /*
-       Separación específica en celular.
-       Así el cordón queda claramente debajo
-       de ECLESIASTÉS 4:12.
+       NO colocar aquí ninguna regla para
+       .monograma-sello-img.
+       Conservamos el ajuste correcto de 92% / -46%.
     */
 
-    .cordon {
 
-        margin-top: 58px;
+    /* SALMO */
 
+    .salmo-contenido {
+        padding:
+            25px 22px 135px;
     }
 
 
+    .versiculo {
+        font-size: 25px;
+    }
+
+
+    .cordon-monograma {
+        width: 155px;
+        height: 115px;
+
+        margin-top: 55px;
+    }
+
+
+    .monograma-salmo {
+        width: 125px;
+        height: 125px;
+    }
+
+
+    /* NOVIOS */
+
     .novios {
+        min-height: 85svh;
+    }
 
+
+    .contenido-novios {
         padding:
-            25px 20px;
-
+            55px 20px;
     }
 
 
     .monograma-novios-contenedor {
+        height: 90px;
 
-        height: 125px;
-
+        margin-bottom: 12px;
     }
 
 
     .monograma-novios {
-
-        width: 165px;
-
+        width: 135px;
     }
 
 
-    .historia-evento {
+    .eyebrow {
+        margin-bottom: 24px;
+    }
+
+
+    /* TARJETAS */
+
+    .zona-tarjeta {
+        min-height: auto;
 
         padding:
-            90px 20px 110px;
-
+            34px 16px;
     }
 
 
-    .countdown-bloque {
+    .tarjeta {
+        width: 100%;
 
-        margin-bottom: 120px;
+        padding:
+            45px 21px;
+    }
 
+
+    /* COUNTDOWN */
+
+    .tarjeta-countdown {
+        padding:
+            48px 17px;
+    }
+
+
+    .fecha-grande {
+        margin-bottom: 32px;
     }
 
 
     .contador-item {
-
         padding:
-            0 5px;
-
+            0 4px;
     }
 
 
     .contador-item span {
-
         font-size: 30px;
-
     }
 
 
     .contador-item p {
-
         letter-spacing: 1px;
-
     }
 
 
-    .itinerario {
+    .contador-item:not(:last-child)::after {
+        height: 38px;
+    }
 
-        margin-bottom: 120px;
 
+    /* ITINERARIO */
+
+    .timeline {
+        margin-top: 34px;
     }
 
 
     .momento {
-
         padding:
-            0 25px;
+            0 22px;
 
-        min-height: 160px;
-
+        min-height: 145px;
     }
 
 
     .momento h3 {
-
-        font-size: 25px;
-
+        font-size: 24px;
     }
 
 
+    /* VIDEO */
+
+    .respiro-video {
+        min-height: 48svh;
+    }
+
+
+    /* DRESS CODE */
+
     .recomendaciones-grid {
+        grid-template-columns: 1fr;
+    }
 
-        grid-template-columns:
-            1fr;
 
+    .recomendacion:first-child {
+        border-right: 0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.25);
+    }
+
+
+    .separador-claro {
+        height: 35px;
+
+        margin:
+            28px auto;
+    }
+
+
+    /* MISIÓN */
+
+    .mision-video {
+        min-height: 82svh;
+
+        padding:
+            60px 20px;
     }
 
 
     .misiones-grid {
-
         grid-template-columns:
             1fr 1fr;
 
-        gap: 15px;
+        gap: 14px;
 
+        margin-top: 38px;
     }
 
 
     .mision-item {
-
-        min-height: 130px;
-
+        min-height: 115px;
     }
 
+
+    .mision-cierre {
+        margin-top: 38px;
+    }
+
+
+    /* RSVP */
+
+    .zona-rsvp {
+        min-height: auto;
+    }
+
+
+    /* FORMULARIO */
 
     .formulario-rsvp {
-
         padding:
-            50px 25px 35px;
-
+            48px 24px 35px;
     }
-
 
 }

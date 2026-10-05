@@ -1,7 +1,3 @@
-/* =========================================================
-   ELEMENTOS PRINCIPALES
-========================================================= */
-
 const entrada =
     document.getElementById("entrada");
 
@@ -34,6 +30,17 @@ const heroVideo =
 
 
 /* =========================================================
+   VIDEO PERMANENTE
+========================================================= */
+
+video.muted = true;
+
+video.loop = true;
+
+video.playsInline = true;
+
+
+/* =========================================================
    ABRIR SOBRE
 ========================================================= */
 
@@ -44,25 +51,48 @@ abrirSobre.addEventListener(
     "click",
     function () {
 
-
         if (invitacionAbierta) {
-
             return;
-
         }
 
 
         invitacionAbierta = true;
 
 
+        /*
+        Iniciamos el video en el momento
+        en que el usuario toca el sello.
+        */
+
+        video.currentTime = 0;
+
+
+        video.play().catch(
+            function () {
+
+                console.log(
+                    "El video no pudo iniciar automáticamente."
+                );
+
+            }
+        );
+
+
+        /*
+        Animación del sobre.
+        */
+
         sobre.classList.add(
             "abierto"
         );
 
 
+        /*
+        Mostramos la invitación.
+        */
+
         setTimeout(
             function () {
-
 
                 entrada.classList.add(
                     "finalizada"
@@ -74,29 +104,19 @@ abrirSobre.addEventListener(
                 );
 
 
-                video.currentTime = 0;
-
-
-                video.play().catch(
-                    function () {
-
-                        console.log(
-                            "El video no pudo iniciar automáticamente."
-                        );
-
-                    }
-                );
-
-
                 salmo.classList.add(
                     "visible"
                 );
 
-
             },
-            1500
+            1250
         );
 
+
+        /*
+        Quitamos definitivamente
+        el sobre del documento.
+        */
 
         setTimeout(
             function () {
@@ -105,9 +125,58 @@ abrirSobre.addEventListener(
                     "none";
 
             },
-            2800
+            2400
         );
 
+    }
+);
+
+
+/* =========================================================
+   MANTENER VIDEO REPRODUCIÉNDOSE
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    function () {
+
+        if (
+            document.visibilityState === "visible"
+            &&
+            invitacionAbierta
+            &&
+            video.paused
+        ) {
+
+            video.play().catch(
+                function () {}
+            );
+
+        }
+
+    }
+);
+
+
+/*
+Por seguridad, si el navegador llegara
+a ignorar loop, volvemos a comenzar.
+*/
+
+video.addEventListener(
+    "ended",
+    function () {
+
+        if (invitacionAbierta) {
+
+            video.currentTime = 0;
+
+
+            video.play().catch(
+                function () {}
+            );
+
+        }
 
     }
 );
@@ -119,14 +188,6 @@ abrirSobre.addEventListener(
 
 let musicaSonando = false;
 
-
-/*
-    Generamos los iconos con HTML + CSS.
-
-    No utilizamos símbolos Unicode
-    como ▶ para evitar que iOS/Android
-    los conviertan en emoji.
-*/
 
 function mostrarPlay() {
 
@@ -148,14 +209,12 @@ controlMusica.addEventListener(
     "click",
     function () {
 
-
         if (!musicaSonando) {
 
-
             musica.play()
+
                 .then(
                     function () {
-
 
                         musicaSonando = true;
 
@@ -172,24 +231,20 @@ controlMusica.addEventListener(
                             "Pausar música"
                         );
 
-
                     }
                 )
+
                 .catch(
                     function () {
-
 
                         console.log(
                             "No se pudo reproducir el audio."
                         );
 
-
                     }
                 );
 
-
         } else {
-
 
             musica.pause();
 
@@ -209,16 +264,14 @@ controlMusica.addEventListener(
                 "Reproducir música"
             );
 
-
         }
-
 
     }
 );
 
 
 /* =========================================================
-   CONTROL DE MÚSICA FLOTANTE
+   BOTÓN DE MÚSICA FLOTANTE
 ========================================================= */
 
 const observadorVideo =
@@ -226,35 +279,25 @@ const observadorVideo =
 
         function (entradas) {
 
-
             entradas.forEach(
                 function (entradaVideo) {
 
-
-                    if (
-                        !entradaVideo.isIntersecting
-                    ) {
-
+                    if (!entradaVideo.isIntersecting) {
 
                         controlMusica.classList.add(
                             "flotante"
                         );
 
-
                     } else {
-
 
                         controlMusica.classList.remove(
                             "flotante"
                         );
 
-
                     }
-
 
                 }
             );
-
 
         },
 
@@ -287,7 +330,6 @@ const fechaBoda =
 
 function actualizarCountdown() {
 
-
     const ahora =
         new Date();
 
@@ -299,7 +341,6 @@ function actualizarCountdown() {
 
 
     if (diferencia <= 0) {
-
 
         document.getElementById(
             "dias"
@@ -322,7 +363,6 @@ function actualizarCountdown() {
 
 
         return;
-
 
     }
 
@@ -365,41 +405,28 @@ function actualizarCountdown() {
         "dias"
     ).textContent =
         String(dias)
-        .padStart(
-            3,
-            "0"
-        );
+        .padStart(3, "0");
 
 
     document.getElementById(
         "horas"
     ).textContent =
         String(horas)
-        .padStart(
-            2,
-            "0"
-        );
+        .padStart(2, "0");
 
 
     document.getElementById(
         "minutos"
     ).textContent =
         String(minutos)
-        .padStart(
-            2,
-            "0"
-        );
+        .padStart(2, "0");
 
 
     document.getElementById(
         "segundos"
     ).textContent =
         String(segundos)
-        .padStart(
-            2,
-            "0"
-        );
-
+        .padStart(2, "0");
 
 }
 
@@ -428,15 +455,10 @@ const observadorReveal =
 
         function (entradas) {
 
-
             entradas.forEach(
                 function (elemento) {
 
-
-                    if (
-                        elemento.isIntersecting
-                    ) {
-
+                    if (elemento.isIntersecting) {
 
                         elemento.target.classList.add(
                             "visible"
@@ -447,18 +469,15 @@ const observadorReveal =
                             elemento.target
                         );
 
-
                     }
-
 
                 }
             );
 
-
         },
 
         {
-            threshold: 0.15
+            threshold: 0.12
         }
 
     );
@@ -467,11 +486,9 @@ const observadorReveal =
 elementosReveal.forEach(
     function (elemento) {
 
-
         observadorReveal.observe(
             elemento
         );
-
 
     }
 );
@@ -513,7 +530,6 @@ const formRsvp =
 
 function mostrarRsvp() {
 
-
     modalRsvp.classList.add(
         "activo"
     );
@@ -528,12 +544,10 @@ function mostrarRsvp() {
     document.body.style.overflow =
         "hidden";
 
-
 }
 
 
 function ocultarRsvp() {
-
 
     modalRsvp.classList.remove(
         "activo"
@@ -548,7 +562,6 @@ function ocultarRsvp() {
 
     document.body.style.overflow =
         "";
-
 
 }
 
@@ -571,10 +584,13 @@ cerrarFondo.addEventListener(
 );
 
 
+/* =========================================================
+   FORMULARIO - POR AHORA DEMOSTRACIÓN
+========================================================= */
+
 formRsvp.addEventListener(
     "submit",
     function (evento) {
-
 
         evento.preventDefault();
 
@@ -582,7 +598,6 @@ formRsvp.addEventListener(
         alert(
             "Esta es una demostración. Más adelante conectaremos este formulario con la lista real de invitados."
         );
-
 
     }
 );

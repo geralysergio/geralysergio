@@ -2,40 +2,43 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Geraldine & Sergio</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body class="bloqueado">
 
 
-<!-- =====================================================
-     01 · SOBRE
-===================================================== -->
+<!-- ======================================================
+     VIDEO PERMANENTE DE FONDO
+====================================================== -->
 
-<section
-    class="entrada"
-    id="entrada"
->
+<div class="fondo-video">
 
-    <div
-        class="sobre-full"
-        id="sobreFull"
+    <video
+        id="videoBoda"
+        muted
+        playsinline
+        loop
+        preload="auto"
     >
+        <source src="video/intro.mp4" type="video/mp4">
+    </video>
+
+</div>
+
+
+<!-- ======================================================
+     SOBRE DE ENTRADA
+====================================================== -->
+
+<section class="entrada" id="entrada">
+
+    <div class="sobre-full" id="sobreFull">
 
         <div class="textura-papel"></div>
 
@@ -43,11 +46,10 @@
         <!-- PLIEGUES -->
 
         <div class="pliegue pliegue-izquierdo"></div>
-
         <div class="pliegue pliegue-derecho"></div>
 
 
-        <!-- DESTINATARIO -->
+        <!-- INVITADO -->
 
         <div class="destinatario">
 
@@ -60,15 +62,13 @@
             </h1>
 
             <p class="lugares">
-
                 Hemos reservado
 
                 <strong>
-                    2 lugares
+                    3 lugares
                 </strong>
 
                 para ti
-
             </p>
 
         </div>
@@ -104,46 +104,24 @@
             TOCA EL MONOGRAMA PARA ABRIR
         </p>
 
-
     </div>
 
 </section>
 
 
+<!-- ======================================================
+     SALMO
+====================================================== -->
 
-<!-- =====================================================
-     02 · VIDEO + SALMO
-===================================================== -->
+<section class="hero-video" id="heroVideo">
 
-<section
-    class="hero-video"
-    id="heroVideo"
->
-
-
-    <video
-        id="videoBoda"
-        muted
-        playsinline
-        preload="auto"
-    >
-
-        <source
-            src="video/intro.mp4"
-            type="video/mp4"
-        >
-
-    </video>
-
-
-    <div class="video-overlay"></div>
+    <div class="capa-salmo"></div>
 
 
     <div
         class="salmo-contenido"
         id="salmoContenido"
     >
-
 
         <p class="versiculo linea-texto texto-1">
             Uno solo puede ser vencido,
@@ -167,29 +145,34 @@
         </p>
 
 
-        <!--
-            CORDÓN DE TRES DOBLECES
-        -->
+        <!-- TRES LÍNEAS QUE DAN PASO AL MONOGRAMA -->
 
-        <div class="cordon">
+        <div class="cordon-monograma">
 
-            <span class="cordon-linea cordon-1"></span>
+            <div class="cordon">
 
-            <span class="cordon-linea cordon-2"></span>
+                <span class="cordon-linea cordon-1"></span>
 
-            <span class="cordon-linea cordon-3"></span>
+                <span class="cordon-linea cordon-2"></span>
+
+                <span class="cordon-linea cordon-3"></span>
+
+            </div>
+
+
+            <img
+                src="img/monograma.svg"
+                alt="Geraldine y Sergio"
+                class="monograma-salmo"
+            >
 
         </div>
-
 
     </div>
 
 
-
-    <!-- =================================================
+    <!-- ==================================================
          CONTROL DE MÚSICA
-         El icono se dibuja con CSS.
-         No usamos emoji.
     ================================================== -->
 
     <button
@@ -198,14 +181,11 @@
         aria-label="Reproducir música"
     >
 
-
         <span
             class="icono-musica"
             id="iconoMusica"
         >
-
             <span class="play-icon"></span>
-
         </span>
 
 
@@ -224,9 +204,7 @@
 
         </span>
 
-
     </button>
-
 
 
     <audio
@@ -234,12 +212,10 @@
         preload="metadata"
         loop
     >
-
         <source
             src="audio/cancion.mp3"
             type="audio/mpeg"
         >
-
     </audio>
 
 
@@ -247,74 +223,65 @@
         DESLIZA PARA DESCUBRIR
     </p>
 
-
 </section>
 
 
-
-<!-- =====================================================
-     03 · NOVIOS
-===================================================== -->
+<!-- ======================================================
+     NOVIOS - DIRECTAMENTE SOBRE EL VIDEO
+====================================================== -->
 
 <section class="novios">
 
+    <div class="contenido-novios reveal">
 
-    <div class="monograma-novios-contenedor">
+        <div class="monograma-novios-contenedor">
 
-        <img
-            src="img/monograma.svg"
-            alt="Geraldine y Sergio"
-            class="monograma-novios"
-        >
+            <img
+                src="img/monograma.svg"
+                alt="Geraldine y Sergio"
+                class="monograma-novios"
+            >
+
+        </div>
+
+
+        <p class="eyebrow">
+            ACOMPÁÑANOS A CELEBRAR
+            <br>
+            NUESTRA BODA
+        </p>
+
+
+        <h2 class="nombres">
+
+            Geraldine
+
+            <span>&</span>
+
+            Sergio
+
+        </h2>
+
+
+        <div class="ornamento"></div>
+
+
+        <p class="fecha">
+            23 · 01 · 2027
+        </p>
 
     </div>
-
-
-    <p class="eyebrow">
-
-        ACOMPÁÑANOS A CELEBRAR
-
-        <br>
-
-        NUESTRA BODA
-
-    </p>
-
-
-    <h2 class="nombres">
-
-        Geraldine
-
-        <span>&</span>
-
-        Sergio
-
-    </h2>
-
-
-    <div class="ornamento"></div>
-
-
-    <p class="fecha">
-        23 · 01 · 2027
-    </p>
-
 
 </section>
 
 
+<!-- ======================================================
+     COUNTDOWN
+====================================================== -->
 
-<!-- =====================================================
-     04 · INFORMACIÓN PRINCIPAL
-===================================================== -->
+<section class="zona-tarjeta">
 
-<section class="historia-evento">
-
-
-    <!-- COUNTDOWN -->
-
-    <div class="countdown-bloque reveal">
-
+    <div class="tarjeta tarjeta-countdown reveal">
 
         <p class="microtitulo azul">
             FALTA MUY POCO
@@ -327,7 +294,6 @@
 
 
         <div class="countdown">
-
 
             <div class="contador-item">
 
@@ -372,18 +338,20 @@
 
             </div>
 
-
         </div>
-
 
     </div>
 
+</section>
 
 
-    <!-- ITINERARIO -->
+<!-- ======================================================
+     ITINERARIO
+====================================================== -->
 
-    <div class="itinerario reveal">
+<section class="zona-tarjeta">
 
+    <div class="tarjeta tarjeta-itinerario reveal">
 
         <p class="microtitulo azul">
             NUESTRO DÍA
@@ -391,7 +359,6 @@
 
 
         <div class="timeline">
-
 
             <div class="timeline-linea"></div>
 
@@ -452,18 +419,41 @@
 
             </article>
 
-
         </div>
-
 
     </div>
 
+</section>
 
 
-    <!-- UBICACIÓN -->
+<!-- ======================================================
+     VIDEO SIN TARJETA
+====================================================== -->
 
-    <div class="ubicacion reveal">
+<section class="respiro-video">
 
+    <p class="frase-video reveal">
+
+        Un día para celebrar
+
+        <br>
+
+        <em>
+            nuestra historia.
+        </em>
+
+    </p>
+
+</section>
+
+
+<!-- ======================================================
+     UBICACIÓN
+====================================================== -->
+
+<section class="zona-tarjeta">
+
+    <div class="tarjeta ubicacion reveal">
 
         <svg
             class="icono-lineal icono-ubicacion"
@@ -495,13 +485,9 @@
 
 
         <p class="direccion">
-
             Barbosa · Vereda Tamborcito
-
             <br>
-
             Calle 1
-
         </p>
 
 
@@ -514,23 +500,18 @@
             CÓMO LLEGAR
         </a>
 
-
     </div>
-
 
 </section>
 
 
+<!-- ======================================================
+     DRESS CODE
+====================================================== -->
 
-<!-- =====================================================
-     05 · DRESS CODE
-===================================================== -->
+<section class="zona-tarjeta">
 
-<section class="dress-code">
-
-
-    <div class="dress-contenido reveal">
-
+    <div class="tarjeta tarjeta-azul dress-contenido reveal">
 
         <svg
             class="icono-lineal icono-claro"
@@ -542,9 +523,7 @@
                 d="M8 4 5 7l3 3v10h8V10l3-3-3-3-4 3-4-3Z"
             />
 
-            <path
-                d="M10 7h4"
-            />
+            <path d="M10 7h4"/>
 
         </svg>
 
@@ -572,6 +551,41 @@
         </p>
 
 
+        <!-- COLORES RESERVADOS -->
+
+        <div class="colores-reservados">
+
+            <p class="titulo-colores">
+                COLORES RESERVADOS
+            </p>
+
+
+            <div class="muestras-colores">
+
+                <span class="muestra blanco"></span>
+
+                <span class="muestra beige"></span>
+
+                <span class="muestra azul-rey"></span>
+
+            </div>
+
+
+            <p class="texto-colores">
+
+                Recuerda reservar los colores
+
+                <strong>
+                    blanco, beige y azul rey
+                </strong>
+
+                para los novios.
+
+            </p>
+
+        </div>
+
+
         <div class="separador-claro"></div>
 
 
@@ -590,7 +604,6 @@
 
 
         <div class="recomendaciones-grid">
-
 
             <div class="recomendacion">
 
@@ -628,26 +641,20 @@
 
             </div>
 
-
         </div>
 
-
     </div>
-
 
 </section>
 
 
+<!-- ======================================================
+     REGALOS
+====================================================== -->
 
-<!-- =====================================================
-     06 · REGALOS
-===================================================== -->
+<section class="zona-tarjeta">
 
-<section class="regalos">
-
-
-    <div class="contenido-angosto reveal">
-
+    <div class="tarjeta contenido-angosto reveal">
 
         <svg
             class="icono-lineal icono-regalo"
@@ -699,25 +706,20 @@
 
         </p>
 
-
     </div>
-
 
 </section>
 
 
+<!-- ======================================================
+     MISIÓN - DIRECTAMENTE SOBRE EL VIDEO
+====================================================== -->
 
-<!-- =====================================================
-     07 · MISIÓN
-===================================================== -->
-
-<section class="mision">
-
+<section class="mision-video">
 
     <div class="contenido-mision reveal">
 
-
-        <p class="microtitulo azul">
+        <p class="microtitulo claro">
             TU MISIÓN EN NUESTRA BODA
         </p>
 
@@ -728,7 +730,6 @@
 
 
         <div class="misiones-grid">
-
 
             <!-- BAILAR -->
 
@@ -765,7 +766,6 @@
             </div>
 
 
-
             <!-- REÍR -->
 
             <div class="mision-item">
@@ -797,7 +797,6 @@
                 </p>
 
             </div>
-
 
 
             <!-- COMER -->
@@ -833,7 +832,6 @@
             </div>
 
 
-
             <!-- CELEBRAR -->
 
             <div class="mision-item">
@@ -862,7 +860,6 @@
 
             </div>
 
-
         </div>
 
 
@@ -876,23 +873,18 @@
 
         </p>
 
-
     </div>
-
 
 </section>
 
 
+<!-- ======================================================
+     RSVP
+====================================================== -->
 
-<!-- =====================================================
-     08 · RSVP
-===================================================== -->
+<section class="zona-tarjeta zona-rsvp">
 
-<section class="rsvp">
-
-
-    <div class="rsvp-contenido reveal">
-
+    <div class="tarjeta tarjeta-azul rsvp-contenido reveal">
 
         <p class="microtitulo claro">
             RSVP
@@ -908,17 +900,32 @@
 
             Nos hará muy felices celebrar contigo.
 
-            <br>
+            <br><br>
 
             Hemos reservado
 
             <strong>
-                2 lugares
+                3 lugares
             </strong>
 
             para tu invitación.
 
         </p>
+
+
+        <div class="fecha-limite">
+
+            <p>
+                CONFIRMA TU ASISTENCIA
+            </p>
+
+            <strong>
+                Antes del
+                <br>
+                15 de noviembre de 2026
+            </strong>
+
+        </div>
 
 
         <button
@@ -929,38 +936,26 @@
         </button>
 
 
-        <p class="nota-rsvp">
-
-            Agradecemos confirmar tu asistencia
-            dentro de la fecha indicada.
-
-        </p>
-
-
         <img
             src="img/monograma.svg"
             alt="Geraldine y Sergio"
             class="monograma-rsvp"
         >
 
-
     </div>
-
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- ======================================================
      MODAL RSVP
-===================================================== -->
+====================================================== -->
 
 <div
     class="modal-rsvp"
     id="modalRsvp"
     aria-hidden="true"
 >
-
 
     <div
         class="modal-fondo"
@@ -969,7 +964,6 @@
 
 
     <div class="formulario-rsvp">
-
 
         <button
             class="cerrar-rsvp"
@@ -995,7 +989,7 @@
             Tienes
 
             <strong>
-                2 lugares
+                3 lugares
             </strong>
 
             reservados.
@@ -1003,11 +997,17 @@
         </p>
 
 
+        <p class="limite-formulario">
+
+            Confirma antes del
+            15 de noviembre de 2026.
+
+        </p>
+
+
         <form id="formRsvp">
 
-
             <div class="campo">
-
 
                 <label>
                     ¿Nos acompañas?
@@ -1015,7 +1015,6 @@
 
 
                 <div class="opciones">
-
 
                     <label class="opcion">
 
@@ -1046,16 +1045,12 @@
 
                     </label>
 
-
                 </div>
-
 
             </div>
 
 
-
             <div class="campo">
-
 
                 <label for="cantidadAsistentes">
                     Personas que asistirán
@@ -1072,34 +1067,32 @@
                         2 personas
                     </option>
 
-                </select>
+                    <option value="3">
+                        3 personas
+                    </option>
 
+                </select>
 
             </div>
 
 
-
             <div class="campo">
 
-
                 <label for="acompanante">
-                    Nombre de tu acompañante
+                    Nombre de tus acompañantes
                 </label>
 
 
                 <input
                     type="text"
                     id="acompanante"
-                    placeholder="Nombre y apellido"
+                    placeholder="Nombres y apellidos"
                 >
-
 
             </div>
 
 
-
             <div class="campo hospedaje">
-
 
                 <p class="hospedaje-etiqueta">
                     HOSPEDAJE
@@ -1108,8 +1101,7 @@
 
                 <p class="texto-hospedaje">
 
-                    Tu invitación cuenta con opción
-                    de hospedaje.
+                    Tu invitación cuenta con opción de hospedaje.
 
                     ¿Deseas reservarlo?
 
@@ -1117,7 +1109,6 @@
 
 
                 <div class="opciones">
-
 
                     <label class="opcion">
 
@@ -1148,9 +1139,7 @@
 
                     </label>
 
-
                 </div>
-
 
             </div>
 
@@ -1167,18 +1156,14 @@
                 DEMOSTRACIÓN · LOS DATOS AÚN NO SE ENVÍAN
             </p>
 
-
         </form>
 
-
     </div>
-
 
 </div>
 
 
 <script src="script.js"></script>
-
 
 </body>
 
