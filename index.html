@@ -3,50 +3,78 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Geraldine & Sergio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body class="bloqueado">
 
 
-<!-- ======================================================
+<!-- =====================================================
      VIDEO PERMANENTE DE FONDO
-====================================================== -->
+===================================================== -->
 
-<div class="fondo-video">
+<div class="video-fondo">
 
     <video
         id="videoBoda"
         muted
         playsinline
-        loop
         preload="auto"
+        loop
     >
-        <source src="video/intro.mp4" type="video/mp4">
+        <source
+            src="video/intro.mp4"
+            type="video/mp4"
+        >
     </video>
+
+    <div class="video-filtro"></div>
 
 </div>
 
 
-<!-- ======================================================
-     SOBRE DE ENTRADA
-====================================================== -->
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
 
-<section class="entrada" id="entrada">
+<audio
+    id="musicaBoda"
+    preload="auto"
+    loop
+>
+    <source
+        src="audio/cancion.mp3"
+        type="audio/mpeg"
+    >
+</audio>
 
-    <div class="sobre-full" id="sobreFull">
+
+
+<!-- =====================================================
+     SOBRE
+===================================================== -->
+
+<section
+    class="entrada"
+    id="entrada"
+>
+
+    <div
+        class="sobre-full"
+        id="sobreFull"
+    >
+
 
         <div class="textura-papel"></div>
-
-
-        <!-- PLIEGUES -->
-
-        <div class="pliegue pliegue-izquierdo"></div>
-        <div class="pliegue pliegue-derecho"></div>
 
 
         <!-- INVITADO -->
@@ -57,21 +85,36 @@
                 ESTA INVITACIÓN ES PARA
             </p>
 
-            <h1>
+            <h1 id="nombreSobre">
                 Julieth Escudero
             </h1>
 
             <p class="lugares">
+
                 Hemos reservado
 
-                <strong>
+                <strong id="cuposSobre">
                     3 lugares
                 </strong>
 
                 para ti
+
             </p>
 
         </div>
+
+
+
+        <!-- PLIEGUES -->
+
+        <div
+            class="pliegue pliegue-izquierdo"
+        ></div>
+
+        <div
+            class="pliegue pliegue-derecho"
+        ></div>
+
 
 
         <!-- SOLAPA -->
@@ -81,6 +124,7 @@
             <div class="borde-solapa"></div>
 
         </div>
+
 
 
         <!-- SELLO -->
@@ -100,23 +144,33 @@
         </button>
 
 
+
         <p class="abrir-texto">
             TOCA EL MONOGRAMA PARA ABRIR
         </p>
+
 
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =====================================================
+     INVITACIÓN
+===================================================== -->
+
+<main class="invitacion">
+
+
+<!-- =====================================================
      SALMO
-====================================================== -->
+===================================================== -->
 
-<section class="hero-video" id="heroVideo">
-
-    <div class="capa-salmo"></div>
-
+<section
+    class="seccion-video salmo-seccion"
+    id="heroVideo"
+>
 
     <div
         class="salmo-contenido"
@@ -145,110 +199,67 @@
         </p>
 
 
-        <!-- TRES LÍNEAS QUE DAN PASO AL MONOGRAMA -->
 
-        <div class="cordon-monograma">
+        <!-- TRES TRAZOS -->
 
-            <div class="cordon">
+        <div
+            class="trazos-monograma"
+            id="trazosMonograma"
+        >
 
-                <span class="cordon-linea cordon-1"></span>
+            <span class="trazo trazo-1"></span>
 
-                <span class="cordon-linea cordon-2"></span>
+            <span class="trazo trazo-2"></span>
 
-                <span class="cordon-linea cordon-3"></span>
-
-            </div>
+            <span class="trazo trazo-3"></span>
 
 
             <img
                 src="img/monograma.svg"
-                alt="Geraldine y Sergio"
-                class="monograma-salmo"
+                alt=""
+                class="monograma-formado"
             >
 
         </div>
 
+
     </div>
 
-
-    <!-- ==================================================
-         CONTROL DE MÚSICA
-    ================================================== -->
-
-    <button
-        class="control-musica"
-        id="controlMusica"
-        aria-label="Reproducir música"
-    >
-
-        <span
-            class="icono-musica"
-            id="iconoMusica"
-        >
-            <span class="play-icon"></span>
-        </span>
-
-
-        <span class="texto-control-musica">
-
-            <span class="musica-label">
-                NUESTRA CANCIÓN
-            </span>
-
-            <span
-                class="estado-musica"
-                id="estadoMusica"
-            >
-                REPRODUCIR
-            </span>
-
-        </span>
-
-    </button>
-
-
-    <audio
-        id="musicaBoda"
-        preload="metadata"
-        loop
-    >
-        <source
-            src="audio/cancion.mp3"
-            type="audio/mpeg"
-        >
-    </audio>
 
 
     <p class="continuar-video">
         DESLIZA PARA DESCUBRIR
     </p>
 
+
 </section>
 
 
-<!-- ======================================================
-     NOVIOS - DIRECTAMENTE SOBRE EL VIDEO
-====================================================== -->
 
-<section class="novios">
+<!-- =====================================================
+     NOVIOS
+===================================================== -->
 
-    <div class="contenido-novios reveal">
+<section class="seccion-video novios">
 
-        <div class="monograma-novios-contenedor">
+    <div class="novios-contenido reveal">
 
-            <img
-                src="img/monograma.svg"
-                alt="Geraldine y Sergio"
-                class="monograma-novios"
-            >
 
-        </div>
+        <img
+            src="img/monograma.svg"
+            alt="Geraldine y Sergio"
+            class="monograma-novios"
+        >
 
 
         <p class="eyebrow">
+
             ACOMPÁÑANOS A CELEBRAR
+
             <br>
+
             NUESTRA BODA
+
         </p>
 
 
@@ -270,18 +281,22 @@
             23 · 01 · 2027
         </p>
 
+
     </div>
 
 </section>
 
 
-<!-- ======================================================
-     COUNTDOWN
-====================================================== -->
 
-<section class="zona-tarjeta">
+<!-- =====================================================
+     CUENTA REGRESIVA
+===================================================== -->
 
-    <div class="tarjeta tarjeta-countdown reveal">
+<section class="seccion-video seccion-tarjeta">
+
+    <div
+        class="tarjeta-clara countdown-bloque reveal"
+    >
 
         <p class="microtitulo azul">
             FALTA MUY POCO
@@ -293,7 +308,9 @@
         </h2>
 
 
+
         <div class="countdown">
+
 
             <div class="contador-item">
 
@@ -338,6 +355,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -345,13 +363,17 @@
 </section>
 
 
-<!-- ======================================================
+
+<!-- =====================================================
      ITINERARIO
-====================================================== -->
+===================================================== -->
 
-<section class="zona-tarjeta">
+<section class="seccion-video seccion-tarjeta">
 
-    <div class="tarjeta tarjeta-itinerario reveal">
+    <div
+        class="tarjeta-clara itinerario reveal"
+    >
+
 
         <p class="microtitulo azul">
             NUESTRO DÍA
@@ -360,20 +382,27 @@
 
         <div class="timeline">
 
+
             <div class="timeline-linea"></div>
 
+
+
+            <!-- CEREMONIA -->
 
             <article class="momento">
 
                 <div class="punto"></div>
 
+
                 <p class="hora">
                     5:00 PM
                 </p>
 
+
                 <h3>
                     Ceremonia
                 </h3>
+
 
                 <p>
                     El comienzo de nuestro para siempre.
@@ -382,17 +411,23 @@
             </article>
 
 
+
+            <!-- RECEPCIÓN -->
+
             <article class="momento">
 
                 <div class="punto"></div>
+
 
                 <p class="hora">
                     7:00 PM
                 </p>
 
+
                 <h3>
                     Recepción
                 </h3>
+
 
                 <p>
                     Brindemos, celebremos y bailemos juntos.
@@ -401,23 +436,30 @@
             </article>
 
 
+
+            <!-- REGRESO -->
+
             <article class="momento">
 
                 <div class="punto"></div>
+
 
                 <p class="hora">
                     1:00 AM
                 </p>
 
+
                 <h3>
                     Regreso a casa
                 </h3>
+
 
                 <p>
                     Después de una noche para recordar.
                 </p>
 
             </article>
+
 
         </div>
 
@@ -426,34 +468,17 @@
 </section>
 
 
-<!-- ======================================================
-     VIDEO SIN TARJETA
-====================================================== -->
 
-<section class="respiro-video">
-
-    <p class="frase-video reveal">
-
-        Un día para celebrar
-
-        <br>
-
-        <em>
-            nuestra historia.
-        </em>
-
-    </p>
-
-</section>
-
-
-<!-- ======================================================
+<!-- =====================================================
      UBICACIÓN
-====================================================== -->
+===================================================== -->
 
-<section class="zona-tarjeta">
+<section class="seccion-video seccion-tarjeta">
 
-    <div class="tarjeta ubicacion reveal">
+    <div
+        class="tarjeta-clara ubicacion reveal"
+    >
+
 
         <svg
             class="icono-lineal icono-ubicacion"
@@ -485,9 +510,13 @@
 
 
         <p class="direccion">
+
             Barbosa · Vereda Tamborcito
+
             <br>
+
             Calle 1
+
         </p>
 
 
@@ -496,22 +525,26 @@
             target="_blank"
             rel="noopener noreferrer"
             class="boton-lineal"
+            id="botonMapa"
         >
             CÓMO LLEGAR
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =====================================================
      DRESS CODE
-====================================================== -->
+===================================================== -->
 
-<section class="zona-tarjeta">
+<section class="seccion-video dress-code">
 
-    <div class="tarjeta tarjeta-azul dress-contenido reveal">
+    <div class="dress-contenido reveal">
+
 
         <svg
             class="icono-lineal icono-claro"
@@ -528,14 +561,17 @@
         </svg>
 
 
+
         <p class="microtitulo claro">
             DRESS CODE
         </p>
 
 
+
         <h2>
             Traje formal
         </h2>
+
 
 
         <p class="frase-dress">
@@ -551,47 +587,37 @@
         </p>
 
 
-        <!-- COLORES RESERVADOS -->
-
-        <div class="colores-reservados">
-
-            <p class="titulo-colores">
-                COLORES RESERVADOS
-            </p>
-
-
-            <div class="muestras-colores">
-
-                <span class="muestra blanco"></span>
-
-                <span class="muestra beige"></span>
-
-                <span class="muestra azul-rey"></span>
-
-            </div>
-
-
-            <p class="texto-colores">
-
-                Recuerda reservar los colores
-
-                <strong>
-                    blanco, beige y azul rey
-                </strong>
-
-                para los novios.
-
-            </p>
-
-        </div>
-
 
         <div class="separador-claro"></div>
+
+
+
+        <!-- COLORES RESERVADOS -->
+
+        <p class="colores-reservados">
+
+            Por favor, reserva los colores
+
+            <strong>
+                blanco, beige y azul rey
+            </strong>
+
+            para los novios.
+
+        </p>
+
+
+
+        <div
+            class="separador-claro pequeno"
+        ></div>
+
 
 
         <p class="titulo-recomendaciones">
             ELEGANTES, PERO CÓMODOS
         </p>
+
 
 
         <p class="intro-recomendaciones">
@@ -603,7 +629,11 @@
         </p>
 
 
+
+        <!-- ELLOS / ELLAS -->
+
         <div class="recomendaciones-grid">
+
 
             <div class="recomendacion">
 
@@ -611,16 +641,24 @@
                     01
                 </span>
 
+
                 <h3>
                     Ellos
                 </h3>
 
+
                 <p>
-                    Traje formal. Si lo prefieren,
-                    pueden acompañarlo con tenis sobrios.
+
+                    Traje formal.
+
+                    Si lo prefieren,
+                    pueden acompañarlo
+                    con tenis sobrios.
+
                 </p>
 
             </div>
+
 
 
             <div class="recomendacion">
@@ -629,32 +667,45 @@
                     02
                 </span>
 
+
                 <h3>
                     Ellas
                 </h3>
 
+
                 <p>
-                    Vestido formal. Recomendamos zapatos bajos,
-                    sandalias o un calzado cómodo para disfrutar
-                    del entorno y bailar sin preocupaciones.
+
+                    Vestido formal.
+
+                    Recomendamos zapatos bajos,
+                    sandalias o un calzado cómodo
+                    para disfrutar del entorno
+                    y bailar sin preocupaciones.
+
                 </p>
 
             </div>
 
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =====================================================
      REGALOS
-====================================================== -->
+===================================================== -->
 
-<section class="zona-tarjeta">
+<section class="seccion-video seccion-tarjeta">
 
-    <div class="tarjeta contenido-angosto reveal">
+    <div
+        class="tarjeta-clara contenido-angosto reveal"
+    >
+
 
         <svg
             class="icono-lineal icono-regalo"
@@ -685,14 +736,17 @@
         </svg>
 
 
+
         <p class="microtitulo azul">
             REGALOS
         </p>
 
 
+
         <h2 class="titulo-editorial">
             Lluvia de sobres
         </h2>
+
 
 
         <p class="texto-editorial">
@@ -706,18 +760,21 @@
 
         </p>
 
+
     </div>
 
 </section>
 
 
-<!-- ======================================================
-     MISIÓN - DIRECTAMENTE SOBRE EL VIDEO
-====================================================== -->
 
-<section class="mision-video">
+<!-- =====================================================
+     MISIÓN
+===================================================== -->
+
+<section class="seccion-video mision">
 
     <div class="contenido-mision reveal">
+
 
         <p class="microtitulo claro">
             TU MISIÓN EN NUESTRA BODA
@@ -729,7 +786,9 @@
         </h2>
 
 
+
         <div class="misiones-grid">
+
 
             <!-- BAILAR -->
 
@@ -738,7 +797,6 @@
                 <svg
                     class="icono-lineal"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
                 >
 
                     <circle
@@ -759,11 +817,13 @@
 
                 </svg>
 
+
                 <p>
                     Bailar
                 </p>
 
             </div>
+
 
 
             <!-- REÍR -->
@@ -773,7 +833,6 @@
                 <svg
                     class="icono-lineal"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
                 >
 
                     <circle
@@ -792,11 +851,13 @@
 
                 </svg>
 
+
                 <p>
                     Reír
                 </p>
 
             </div>
+
 
 
             <!-- COMER -->
@@ -806,7 +867,6 @@
                 <svg
                     class="icono-lineal"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
                 >
 
                     <path d="M7 3v8"/>
@@ -825,11 +885,13 @@
 
                 </svg>
 
+
                 <p>
                     Comer rico
                 </p>
 
             </div>
+
 
 
             <!-- CELEBRAR -->
@@ -839,7 +901,6 @@
                 <svg
                     class="icono-lineal"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
                 >
 
                     <path
@@ -854,13 +915,16 @@
 
                 </svg>
 
+
                 <p>
                     Celebrar
                 </p>
 
             </div>
 
+
         </div>
+
 
 
         <p class="mision-cierre">
@@ -873,22 +937,26 @@
 
         </p>
 
+
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =====================================================
      RSVP
-====================================================== -->
+===================================================== -->
 
-<section class="zona-tarjeta zona-rsvp">
+<section class="seccion-video rsvp">
 
-    <div class="tarjeta tarjeta-azul rsvp-contenido reveal">
+    <div class="rsvp-contenido reveal">
+
 
         <p class="microtitulo claro">
             RSVP
         </p>
+
 
 
         <h2>
@@ -896,15 +964,17 @@
         </h2>
 
 
+
         <p class="rsvp-intro">
 
-            Nos hará muy felices celebrar contigo.
+            Nos hará muy felices
+            celebrar contigo.
 
             <br><br>
 
             Hemos reservado
 
-            <strong>
+            <strong id="cuposRsvp">
                 3 lugares
             </strong>
 
@@ -913,27 +983,28 @@
         </p>
 
 
-        <div class="fecha-limite">
 
-            <p>
-                CONFIRMA TU ASISTENCIA
-            </p>
+        <p class="fecha-limite">
+
+            Por favor confirma tu asistencia
 
             <strong>
-                Antes del
-                <br>
-                15 de noviembre de 2026
+                antes del 15 de noviembre.
             </strong>
 
-        </div>
+        </p>
+
 
 
         <button
             class="boton-rsvp"
             id="abrirRsvp"
         >
+
             CONFIRMAR ASISTENCIA
+
         </button>
+
 
 
         <img
@@ -942,14 +1013,19 @@
             class="monograma-rsvp"
         >
 
+
     </div>
 
 </section>
 
 
-<!-- ======================================================
+</main>
+
+
+
+<!-- =====================================================
      MODAL RSVP
-====================================================== -->
+===================================================== -->
 
 <div
     class="modal-rsvp"
@@ -957,13 +1033,16 @@
     aria-hidden="true"
 >
 
+
     <div
         class="modal-fondo"
         id="cerrarFondo"
     ></div>
 
 
+
     <div class="formulario-rsvp">
+
 
         <button
             class="cerrar-rsvp"
@@ -974,21 +1053,24 @@
         </button>
 
 
+
         <p class="microtitulo azul">
             CONFIRMA TU ASISTENCIA
         </p>
 
 
-        <h2>
+
+        <h2 id="nombreFormulario">
             Julieth Escudero
         </h2>
+
 
 
         <p class="cupos-formulario">
 
             Tienes
 
-            <strong>
+            <strong id="cuposFormulario">
                 3 lugares
             </strong>
 
@@ -997,15 +1079,11 @@
         </p>
 
 
-        <p class="limite-formulario">
-
-            Confirma antes del
-            15 de noviembre de 2026.
-
-        </p>
-
 
         <form id="formRsvp">
+
+
+            <!-- ASISTENCIA -->
 
             <div class="campo">
 
@@ -1015,6 +1093,7 @@
 
 
                 <div class="opciones">
+
 
                     <label class="opcion">
 
@@ -1031,6 +1110,7 @@
                     </label>
 
 
+
                     <label class="opcion">
 
                         <input
@@ -1045,54 +1125,39 @@
 
                     </label>
 
+
                 </div>
 
             </div>
 
 
+
+            <!-- CANTIDAD -->
+
             <div class="campo">
 
                 <label for="cantidadAsistentes">
+
                     Personas que asistirán
+
                 </label>
 
 
-                <select id="cantidadAsistentes">
-
-                    <option value="1">
-                        1 persona
-                    </option>
-
-                    <option value="2">
-                        2 personas
-                    </option>
-
-                    <option value="3">
-                        3 personas
-                    </option>
-
-                </select>
+                <select
+                    id="cantidadAsistentes"
+                ></select>
 
             </div>
 
 
-            <div class="campo">
 
-                <label for="acompanante">
-                    Nombre de tus acompañantes
-                </label>
+            <!-- HOSPEDAJE -->
 
+            <div
+                class="campo hospedaje"
+                id="bloqueHospedaje"
+            >
 
-                <input
-                    type="text"
-                    id="acompanante"
-                    placeholder="Nombres y apellidos"
-                >
-
-            </div>
-
-
-            <div class="campo hospedaje">
 
                 <p class="hospedaje-etiqueta">
                     HOSPEDAJE
@@ -1101,14 +1166,19 @@
 
                 <p class="texto-hospedaje">
 
-                    Tu invitación cuenta con opción de hospedaje.
+                    Tu invitación cuenta
+                    con opción de hospedaje.
+
+                    <br>
 
                     ¿Deseas reservarlo?
 
                 </p>
 
 
+
                 <div class="opciones">
+
 
                     <label class="opcion">
 
@@ -1125,6 +1195,7 @@
                     </label>
 
 
+
                     <label class="opcion">
 
                         <input
@@ -1139,31 +1210,53 @@
 
                     </label>
 
+
                 </div>
 
+
             </div>
+
 
 
             <button
                 type="submit"
                 class="enviar-rsvp"
             >
+
                 CONFIRMAR
+
             </button>
 
 
-            <p class="demo-formulario">
-                DEMOSTRACIÓN · LOS DATOS AÚN NO SE ENVÍAN
+
+            <p class="fecha-limite-formulario">
+
+                Confirma antes del
+                15 de noviembre.
+
             </p>
 
+
+
+            <p class="demo-formulario">
+
+                DEMOSTRACIÓN · LOS DATOS
+                AÚN NO SE ENVÍAN
+
+            </p>
+
+
         </form>
+
 
     </div>
 
 </div>
 
 
+
 <script src="script.js"></script>
+
 
 </body>
 

@@ -1,122 +1,290 @@
+/* =====================================================
+   DATOS DEL INVITADO
+===================================================== */
+
+const invitado = {
+
+    nombre: "Julieth Escudero",
+
+    cupos: 3,
+
+    /*
+        false = NO tiene hospedaje
+        true  = SÍ tiene hospedaje
+    */
+
+    hospedaje: false
+
+};
+
+
+
+/* =====================================================
+   ELEMENTOS PRINCIPALES
+===================================================== */
+
 const entrada =
     document.getElementById("entrada");
+
 
 const sobre =
     document.getElementById("sobreFull");
 
+
 const abrirSobre =
     document.getElementById("abrirSobre");
+
 
 const video =
     document.getElementById("videoBoda");
 
-const salmo =
-    document.getElementById("salmoContenido");
 
 const musica =
     document.getElementById("musicaBoda");
 
-const controlMusica =
-    document.getElementById("controlMusica");
 
-const iconoMusica =
-    document.getElementById("iconoMusica");
-
-const estadoMusica =
-    document.getElementById("estadoMusica");
-
-const heroVideo =
-    document.getElementById("heroVideo");
+const salmo =
+    document.getElementById("salmoContenido");
 
 
-/* =========================================================
-   VIDEO PERMANENTE
-========================================================= */
 
-video.muted = true;
+/* =====================================================
+   TEXTO DE CUPOS
+===================================================== */
 
-video.loop = true;
+function textoLugares(cantidad) {
 
-video.playsInline = true;
+    if (cantidad === 1) {
+
+        return "1 lugar";
+
+    }
+
+    return cantidad + " lugares";
+
+}
 
 
-/* =========================================================
+
+/* =====================================================
+   PERSONALIZAR INVITACIÓN
+===================================================== */
+
+document.getElementById(
+    "nombreSobre"
+).textContent =
+    invitado.nombre;
+
+
+
+document.getElementById(
+    "cuposSobre"
+).textContent =
+    textoLugares(
+        invitado.cupos
+    );
+
+
+
+document.getElementById(
+    "cuposRsvp"
+).textContent =
+    textoLugares(
+        invitado.cupos
+    );
+
+
+
+document.getElementById(
+    "nombreFormulario"
+).textContent =
+    invitado.nombre;
+
+
+
+document.getElementById(
+    "cuposFormulario"
+).textContent =
+    textoLugares(
+        invitado.cupos
+    );
+
+
+
+/* =====================================================
+   GENERAR CANTIDAD DE PERSONAS
+===================================================== */
+
+const cantidadAsistentes =
+    document.getElementById(
+        "cantidadAsistentes"
+    );
+
+
+cantidadAsistentes.innerHTML = "";
+
+
+for (
+    let i = 1;
+    i <= invitado.cupos;
+    i++
+) {
+
+    const opcion =
+        document.createElement(
+            "option"
+        );
+
+
+    opcion.value = i;
+
+
+    opcion.textContent =
+        i === 1
+            ? "1 persona"
+            : i + " personas";
+
+
+    cantidadAsistentes.appendChild(
+        opcion
+    );
+
+}
+
+
+
+/* =====================================================
+   HOSPEDAJE
+===================================================== */
+
+const bloqueHospedaje =
+    document.getElementById(
+        "bloqueHospedaje"
+    );
+
+
+if (!invitado.hospedaje) {
+
+    bloqueHospedaje
+        .classList
+        .add("oculto");
+
+}
+
+
+
+/* =====================================================
    ABRIR SOBRE
-========================================================= */
+===================================================== */
 
 let invitacionAbierta = false;
+
 
 
 abrirSobre.addEventListener(
     "click",
     function () {
 
+
         if (invitacionAbierta) {
+
             return;
+
         }
 
 
         invitacionAbierta = true;
 
 
-        /*
-        Iniciamos el video en el momento
-        en que el usuario toca el sello.
-        */
 
-        video.currentTime = 0;
-
-
-        video.play().catch(
-            function () {
-
-                console.log(
-                    "El video no pudo iniciar automáticamente."
-                );
-
-            }
-        );
-
-
-        /*
-        Animación del sobre.
-        */
+        /* -----------------------------------------
+           ABRIR SOBRE
+        ----------------------------------------- */
 
         sobre.classList.add(
             "abierto"
         );
 
 
-        /*
-        Mostramos la invitación.
-        */
+
+        /* -----------------------------------------
+           INICIAR MÚSICA
+
+           Se ejecuta directamente desde
+           el toque del usuario para mejorar
+           compatibilidad con iPhone.
+        ----------------------------------------- */
+
+        musica.play().catch(
+            function () {
+
+                console.log(
+                    "El navegador no permitió iniciar el audio."
+                );
+
+            }
+        );
+
+
+
+        /* -----------------------------------------
+           INICIAR VIDEO
+        ----------------------------------------- */
+
+        video.play().catch(
+            function () {
+
+                console.log(
+                    "El video no pudo iniciar."
+                );
+
+            }
+        );
+
+
+
+        /* -----------------------------------------
+           MOSTRAR INVITACIÓN
+        ----------------------------------------- */
 
         setTimeout(
             function () {
+
 
                 entrada.classList.add(
                     "finalizada"
                 );
 
 
-                document.body.classList.remove(
-                    "bloqueado"
-                );
+                document.body
+                    .classList
+                    .remove(
+                        "bloqueado"
+                    );
 
+
+                /*
+                    Aquí comienzan:
+
+                    - Salmo
+                    - tres líneas
+                    - formación del monograma
+                */
 
                 salmo.classList.add(
                     "visible"
                 );
 
+
             },
-            1250
+            1500
         );
 
 
-        /*
-        Quitamos definitivamente
-        el sobre del documento.
-        */
+
+        /* -----------------------------------------
+           RETIRAR SOBRE
+        ----------------------------------------- */
 
         setTimeout(
             function () {
@@ -125,197 +293,126 @@ abrirSobre.addEventListener(
                     "none";
 
             },
-            2400
+            2800
         );
+
 
     }
 );
 
 
-/* =========================================================
-   MANTENER VIDEO REPRODUCIÉNDOSE
-========================================================= */
+
+/* =====================================================
+   PAUSAR AL SALIR
+===================================================== */
 
 document.addEventListener(
     "visibilitychange",
     function () {
 
-        if (
-            document.visibilityState === "visible"
-            &&
-            invitacionAbierta
-            &&
-            video.paused
-        ) {
 
-            video.play().catch(
-                function () {}
-            );
+        if (!invitacionAbierta) {
+
+            return;
 
         }
 
-    }
-);
+
+        /*
+            USUARIO SALE DE LA INVITACIÓN
+        */
+
+        if (document.hidden) {
 
 
-/*
-Por seguridad, si el navegador llegara
-a ignorar loop, volvemos a comenzar.
-*/
+            video.pause();
 
-video.addEventListener(
-    "ended",
-    function () {
-
-        if (invitacionAbierta) {
-
-            video.currentTime = 0;
-
-
-            video.play().catch(
-                function () {}
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   MÚSICA
-========================================================= */
-
-let musicaSonando = false;
-
-
-function mostrarPlay() {
-
-    iconoMusica.innerHTML =
-        '<span class="play-icon"></span>';
-
-}
-
-
-function mostrarPausa() {
-
-    iconoMusica.innerHTML =
-        '<span class="pause-icon"><i></i><i></i></span>';
-
-}
-
-
-controlMusica.addEventListener(
-    "click",
-    function () {
-
-        if (!musicaSonando) {
-
-            musica.play()
-
-                .then(
-                    function () {
-
-                        musicaSonando = true;
-
-
-                        mostrarPausa();
-
-
-                        estadoMusica.textContent =
-                            "PAUSAR";
-
-
-                        controlMusica.setAttribute(
-                            "aria-label",
-                            "Pausar música"
-                        );
-
-                    }
-                )
-
-                .catch(
-                    function () {
-
-                        console.log(
-                            "No se pudo reproducir el audio."
-                        );
-
-                    }
-                );
-
-        } else {
 
             musica.pause();
 
 
-            musicaSonando = false;
+        } else {
 
 
-            mostrarPlay();
+            /*
+                USUARIO REGRESA
+            */
 
-
-            estadoMusica.textContent =
-                "REPRODUCIR";
-
-
-            controlMusica.setAttribute(
-                "aria-label",
-                "Reproducir música"
+            video.play().catch(
+                function () {}
             );
 
+
+            musica.play().catch(
+                function () {}
+            );
+
+
         }
+
 
     }
 );
 
 
-/* =========================================================
-   BOTÓN DE MÚSICA FLOTANTE
-========================================================= */
 
-const observadorVideo =
-    new IntersectionObserver(
+/* =====================================================
+   RESPALDO PARA SAFARI / IPHONE
+===================================================== */
 
-        function (entradas) {
+window.addEventListener(
+    "pagehide",
+    function () {
 
-            entradas.forEach(
-                function (entradaVideo) {
 
-                    if (!entradaVideo.isIntersecting) {
+        if (!invitacionAbierta) {
 
-                        controlMusica.classList.add(
-                            "flotante"
-                        );
+            return;
 
-                    } else {
-
-                        controlMusica.classList.remove(
-                            "flotante"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: 0.15
         }
 
-    );
+
+        video.pause();
 
 
-observadorVideo.observe(
-    heroVideo
+        musica.pause();
+
+
+    }
 );
 
 
-/* =========================================================
-   COUNTDOWN
-========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    function () {
+
+
+        if (!invitacionAbierta) {
+
+            return;
+
+        }
+
+
+        video.play().catch(
+            function () {}
+        );
+
+
+        musica.play().catch(
+            function () {}
+        );
+
+
+    }
+);
+
+
+
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
 
 const fechaBoda =
     new Date(
@@ -328,7 +425,9 @@ const fechaBoda =
     );
 
 
+
 function actualizarCountdown() {
+
 
     const ahora =
         new Date();
@@ -340,26 +439,32 @@ function actualizarCountdown() {
         ahora.getTime();
 
 
+
     if (diferencia <= 0) {
+
 
         document.getElementById(
             "dias"
-        ).textContent = "000";
+        ).textContent =
+            "000";
 
 
         document.getElementById(
             "horas"
-        ).textContent = "00";
+        ).textContent =
+            "00";
 
 
         document.getElementById(
             "minutos"
-        ).textContent = "00";
+        ).textContent =
+            "00";
 
 
         document.getElementById(
             "segundos"
-        ).textContent = "00";
+        ).textContent =
+            "00";
 
 
         return;
@@ -367,29 +472,45 @@ function actualizarCountdown() {
     }
 
 
+
     const dias =
         Math.floor(
             diferencia /
-            (1000 * 60 * 60 * 24)
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
         );
+
 
 
     const horas =
         Math.floor(
             (
                 diferencia /
-                (1000 * 60 * 60)
+                (
+                    1000 *
+                    60 *
+                    60
+                )
             ) % 24
         );
+
 
 
     const minutos =
         Math.floor(
             (
                 diferencia /
-                (1000 * 60)
+                (
+                    1000 *
+                    60
+                )
             ) % 60
         );
+
 
 
     const segundos =
@@ -401,34 +522,51 @@ function actualizarCountdown() {
         );
 
 
+
     document.getElementById(
         "dias"
     ).textContent =
         String(dias)
-        .padStart(3, "0");
+            .padStart(
+                3,
+                "0"
+            );
+
 
 
     document.getElementById(
         "horas"
     ).textContent =
         String(horas)
-        .padStart(2, "0");
+            .padStart(
+                2,
+                "0"
+            );
+
 
 
     document.getElementById(
         "minutos"
     ).textContent =
         String(minutos)
-        .padStart(2, "0");
+            .padStart(
+                2,
+                "0"
+            );
+
 
 
     document.getElementById(
         "segundos"
     ).textContent =
         String(segundos)
-        .padStart(2, "0");
+            .padStart(
+                2,
+                "0"
+            );
 
 }
+
 
 
 actualizarCountdown();
@@ -440,9 +578,10 @@ setInterval(
 );
 
 
-/* =========================================================
+
+/* =====================================================
    ANIMACIONES AL HACER SCROLL
-========================================================= */
+===================================================== */
 
 const elementosReveal =
     document.querySelectorAll(
@@ -450,53 +589,71 @@ const elementosReveal =
     );
 
 
+
 const observadorReveal =
     new IntersectionObserver(
 
         function (entradas) {
 
+
             entradas.forEach(
                 function (elemento) {
 
-                    if (elemento.isIntersecting) {
 
-                        elemento.target.classList.add(
-                            "visible"
-                        );
+                    if (
+                        elemento.isIntersecting
+                    ) {
 
 
-                        observadorReveal.unobserve(
-                            elemento.target
-                        );
+                        elemento.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+
+                        observadorReveal
+                            .unobserve(
+                                elemento.target
+                            );
+
 
                     }
+
 
                 }
             );
 
+
         },
 
         {
-            threshold: 0.12
+
+            threshold: 0.15
+
         }
 
     );
 
 
+
 elementosReveal.forEach(
     function (elemento) {
+
 
         observadorReveal.observe(
             elemento
         );
 
+
     }
 );
 
 
-/* =========================================================
+
+/* =====================================================
    RSVP
-========================================================= */
+===================================================== */
 
 const abrirRsvp =
     document.getElementById(
@@ -528,17 +685,26 @@ const formRsvp =
     );
 
 
+
+/* =====================================================
+   ABRIR RSVP
+===================================================== */
+
 function mostrarRsvp() {
 
-    modalRsvp.classList.add(
-        "activo"
-    );
+
+    modalRsvp
+        .classList
+        .add(
+            "activo"
+        );
 
 
-    modalRsvp.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+    modalRsvp
+        .setAttribute(
+            "aria-hidden",
+            "false"
+        );
 
 
     document.body.style.overflow =
@@ -547,17 +713,26 @@ function mostrarRsvp() {
 }
 
 
+
+/* =====================================================
+   CERRAR RSVP
+===================================================== */
+
 function ocultarRsvp() {
 
-    modalRsvp.classList.remove(
-        "activo"
-    );
+
+    modalRsvp
+        .classList
+        .remove(
+            "activo"
+        );
 
 
-    modalRsvp.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+    modalRsvp
+        .setAttribute(
+            "aria-hidden",
+            "true"
+        );
 
 
     document.body.style.overflow =
@@ -566,10 +741,12 @@ function ocultarRsvp() {
 }
 
 
+
 abrirRsvp.addEventListener(
     "click",
     mostrarRsvp
 );
+
 
 
 cerrarRsvp.addEventListener(
@@ -578,19 +755,22 @@ cerrarRsvp.addEventListener(
 );
 
 
+
 cerrarFondo.addEventListener(
     "click",
     ocultarRsvp
 );
 
 
-/* =========================================================
-   FORMULARIO - POR AHORA DEMOSTRACIÓN
-========================================================= */
+
+/* =====================================================
+   FORMULARIO DEMOSTRACIÓN
+===================================================== */
 
 formRsvp.addEventListener(
     "submit",
     function (evento) {
+
 
         evento.preventDefault();
 
@@ -598,6 +778,7 @@ formRsvp.addEventListener(
         alert(
             "Esta es una demostración. Más adelante conectaremos este formulario con la lista real de invitados."
         );
+
 
     }
 );
